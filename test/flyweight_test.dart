@@ -15,14 +15,14 @@ void main() {
     extrinsicStateMock = MockExtrinsicState();
   });
 
-  test("verify fly", () {
+  test("object is cached", () {
     var sut = Flyweight('A');
 
     expect(sut, Flyweight('A'));
     expect(sut, isNot(Flyweight('B')));
   });
 
-  test("verify operation", () {
+  test("operation is called specific number of times", () {
     var sut = UnsharedFlyweight([
       flyweightMock,
       UnsharedFlyweight([flyweightMock, flyweightMock])
@@ -30,5 +30,12 @@ void main() {
 
     sut.operation(extrinsicStateMock);
     verify(flyweightMock.operation(extrinsicStateMock)).called(3);
+  });
+
+  test("doSomething is called", () {
+    var sut = Flyweight('A');
+
+    sut.operation(extrinsicStateMock);
+    verify(extrinsicStateMock.doSomething('A'));
   });
 }

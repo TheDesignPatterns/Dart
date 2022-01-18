@@ -1,5 +1,5 @@
-/// provides interface for doing something having access to both
-/// extrinsic and intrinsic states (for demonstration only)
+/// provides interface for doing specific job having access to both
+/// extrinsic and intrinsic states (for stubbing)
 abstract class ExtrinsicState {
   void doSomething(String intrinsicState);
 }
