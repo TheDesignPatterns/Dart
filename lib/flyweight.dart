@@ -1,5 +1,5 @@
-/// provides interface for doing something with both
-/// extrinsic and intrinsic states (for demonstration purposes)
+/// provides interface for doing something having access to both
+/// extrinsic and intrinsic states (for demonstration only)
 abstract class ExtrinsicState {
   void doSomething(String intrinsicState);
 }
@@ -9,7 +9,7 @@ abstract class AbstractFlyweight {
   void operation(ExtrinsicState extrinsicState);
 }
 
-/// adds storege for intirnsic state, objects of this class must be shareable
+/// adds storage for intrinsic state, objects of this class must be shareable
 class Flyweight implements AbstractFlyweight {
   final String name;
 
@@ -23,11 +23,11 @@ class Flyweight implements AbstractFlyweight {
 
   @override
   void operation(ExtrinsicState extrinsicState) {
-    /* do some specific job having access to both extrinsic and intrinsic states */
     extrinsicState.doSomething(name);
   }
 }
 
+/// stores flyweight objects as children
 class UnsharedFlyweight implements AbstractFlyweight {
   final List<AbstractFlyweight> _flyweights;
 

@@ -5,12 +5,14 @@ import 'package:test/test.dart';
 import 'package:dart/flyweight.dart';
 import 'flyweight_test.mocks.dart';
 
-@GenerateMocks([AbstractFlyweight])
+@GenerateMocks([AbstractFlyweight, ExtrinsicState])
 void main() {
   late AbstractFlyweight flyweightMock;
+  late ExtrinsicState extrinsicStateMock;
 
   setUp(() {
     flyweightMock = MockAbstractFlyweight();
+    extrinsicStateMock = MockExtrinsicState();
   });
 
   test("verify fly", () {
@@ -29,8 +31,7 @@ void main() {
       ])
     ]);
 
-    Context context = [];
-    sut.operation(context);
-    verify(flyweightMock.operation(context)).called(3);
+    sut.operation(extrinsicStateMock);
+    verify(flyweightMock.operation(extrinsicStateMock)).called(3);
   });
 }
