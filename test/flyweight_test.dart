@@ -5,14 +5,14 @@ import 'package:test/test.dart';
 import 'package:dart/flyweight.dart';
 import 'flyweight_test.mocks.dart';
 
-@GenerateMocks([AbstractFlyweight, ExtrinsicState])
+@GenerateMocks([AbstractFlyweight, AbstractExtrinsicState])
 void main() {
   late AbstractFlyweight flyweightMock;
-  late ExtrinsicState extrinsicStateMock;
+  late AbstractExtrinsicState extrinsicStateMock;
 
   setUp(() {
     flyweightMock = MockAbstractFlyweight();
-    extrinsicStateMock = MockExtrinsicState();
+    extrinsicStateMock = MockAbstractExtrinsicState();
   });
 
   test("object is cached", () {

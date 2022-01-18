@@ -1,12 +1,12 @@
 /// provides interface for doing specific job having access to both
 /// extrinsic and intrinsic states (for stubbing)
-abstract class ExtrinsicState {
+abstract class AbstractExtrinsicState {
   void doSomething(String intrinsicState);
 }
 
 /// declares interface through which flyweights can receive and act on extrinsic state
 abstract class AbstractFlyweight {
-  void operation(ExtrinsicState extrinsicState);
+  void operation(AbstractExtrinsicState extrinsicState);
 }
 
 /// adds storage for intrinsic state, objects of this class must be shareable
@@ -22,7 +22,7 @@ class Flyweight implements AbstractFlyweight {
   Flyweight._internal(this.name);
 
   @override
-  void operation(ExtrinsicState extrinsicState) {
+  void operation(AbstractExtrinsicState extrinsicState) {
     extrinsicState.doSomething(name);
   }
 }
@@ -34,7 +34,7 @@ class UnsharedFlyweight implements AbstractFlyweight {
   UnsharedFlyweight(this._flyweights);
 
   @override
-  void operation(ExtrinsicState extrinsicState) {
+  void operation(AbstractExtrinsicState extrinsicState) {
     for (var flyweight in _flyweights) {
       flyweight.operation(extrinsicState);
     }
