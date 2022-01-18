@@ -5,7 +5,12 @@ import 'package:test/test.dart';
 import 'package:dart/facade.dart';
 import 'facade_test.mocks.dart';
 
-@GenerateMocks([AbstractSubsystemFactory, AbstractSubsystemX, AbstractSubsystemY, AbstractSubsystemZ])
+@GenerateMocks([
+  AbstractSubsystemFactory,
+  AbstractSubsystemX,
+  AbstractSubsystemY,
+  AbstractSubsystemZ
+])
 void main() {
   late AbstractSubsystemFactory factoryMock;
   late AbstractSubsystemX subsystemXMock;

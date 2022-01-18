@@ -25,10 +25,7 @@ void main() {
   test("verify operation", () {
     var sut = UnsharedFlyweight([
       flyweightMock,
-      UnsharedFlyweight([
-        flyweightMock,
-        flyweightMock
-      ])
+      UnsharedFlyweight([flyweightMock, flyweightMock])
     ]);
 
     sut.operation(extrinsicStateMock);
