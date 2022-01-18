@@ -5,14 +5,14 @@ import 'package:test/test.dart';
 import 'package:dart/flyweight.dart';
 import 'flyweight_test.mocks.dart';
 
-@GenerateMocks([AbstractFlyweight, AbstractExtrinsicState])
+@GenerateMocks([AbstractFlyweight, AbstractContext])
 void main() {
   late AbstractFlyweight flyweightMock;
-  late AbstractExtrinsicState extrinsicStateMock;
+  late AbstractContext contextMock;
 
   setUp(() {
     flyweightMock = MockAbstractFlyweight();
-    extrinsicStateMock = MockAbstractExtrinsicState();
+    contextMock = MockAbstractContext();
   });
 
   test("object is cached", () {
@@ -28,14 +28,14 @@ void main() {
       UnsharedFlyweight([flyweightMock, flyweightMock])
     ]);
 
-    sut.operation(extrinsicStateMock);
-    verify(flyweightMock.operation(extrinsicStateMock)).called(3);
+    sut.operation(contextMock);
+    verify(flyweightMock.operation(contextMock)).called(3);
   });
 
   test("doSomething is called", () {
     var sut = Flyweight('A');
 
-    sut.operation(extrinsicStateMock);
-    verify(extrinsicStateMock.doSomething('A'));
+    sut.operation(contextMock);
+    verify(contextMock.doSomething('A'));
   });
 }

@@ -1,6 +1,6 @@
 import 'package:dart/flyweight.dart';
 
-class ExtrinsicState implements AbstractExtrinsicState {
+class ExtrinsicState implements AbstractContext {
   @override
   void doSomething(String intrinsicState) =>
       print('$this with $intrinsicState');
