@@ -1,6 +1,6 @@
 import 'package:dart/flyweight.dart';
 
-class ExtrinsicState implements AbstractContext {
+class Context implements AbstractContext {
   @override
   void doSomething(String intrinsicState) =>
       print('$this with $intrinsicState');
@@ -15,5 +15,5 @@ void main() {
     UnsharedFlyweight([flyweightA, flyweightB])
   ]);
 
-  unsharedFlyweight.operation(ExtrinsicState());
+  unsharedFlyweight.operation(Context());
 }
