@@ -1,7 +1,7 @@
 /// provides interface for doing specific job having access to both
 /// extrinsic and intrinsic states (for stubbing)
 abstract class AbstractContext {
-  void doSomething(String intrinsicState);
+  void use(String intrinsicState);
 }
 
 /// declares interface through which flyweights can receive and act on extrinsic state
@@ -23,7 +23,7 @@ class Flyweight implements AbstractFlyweight {
 
   @override
   void operation(AbstractContext context) {
-    context.doSomething(name);
+    context.use(name);
   }
 }
 

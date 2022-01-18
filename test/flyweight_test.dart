@@ -32,10 +32,10 @@ void main() {
     verify(flyweightMock.operation(contextMock)).called(3);
   });
 
-  test("doSomething is called", () {
+  test("use is called", () {
     var sut = Flyweight('A');
 
     sut.operation(contextMock);
-    verify(contextMock.doSomething('A'));
+    verify(contextMock.use('A'));
   });
 }

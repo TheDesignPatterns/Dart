@@ -2,8 +2,7 @@ import 'package:dart/flyweight.dart';
 
 class Context implements AbstractContext {
   @override
-  void doSomething(String intrinsicState) =>
-      print('$this with $intrinsicState');
+  void use(String intrinsicState) => print('$this with $intrinsicState');
 }
 
 void main() {
