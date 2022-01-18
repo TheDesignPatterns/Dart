@@ -1,5 +1,20 @@
 import 'package:dart/facade.dart';
 
+void main() {
+  AbstractFacade facade = Facade(SubsystemFactory());
+
+  facade.handle();
+}
+
+class SubsystemFactory implements AbstractSubsystemFactory {
+  @override
+  AbstractSubsystemX createX() => SubsystemX();
+  @override
+  AbstractSubsystemY createY() => SubsystemY();
+  @override
+  AbstractSubsystemZ createZ() => SubsystemZ();
+}
+
 class SubsystemX implements AbstractSubsystemX {
   @override
   void handle() => print(this);
@@ -13,19 +28,4 @@ class SubsystemY implements AbstractSubsystemY {
 class SubsystemZ implements AbstractSubsystemZ {
   @override
   void handle() => print(this);
-}
-
-class SubsystemFactory implements AbstractSubsystemFactory {
-  @override
-  AbstractSubsystemX createX() => SubsystemX();
-  @override
-  AbstractSubsystemY createY() => SubsystemY();
-  @override
-  AbstractSubsystemZ createZ() => SubsystemZ();
-}
-
-void main() {
-  AbstractFacade facade = Facade(SubsystemFactory());
-
-  facade.handle();
 }
