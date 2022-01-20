@@ -1,1 +1,1 @@
-Design Patterns implemented in Dart with simplicity in mind.
+Design Patterns implemented in Dart with KISS approach.
