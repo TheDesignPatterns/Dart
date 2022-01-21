@@ -7,13 +7,13 @@ abstract class Abstraction {
 ///
 /// This interface does not have to correspond to Abstraction's interface.
 /// In fact, the two interfaces can be quite different.
-abstract class AbstractImplementator {
+abstract class AbstractImplementor {
   void operationImp();
 }
 
 /// Implements interface defined by Abstraction in specific way (aka X)
 class AbstractionX implements Abstraction {
-  final AbstractImplementator _implementator;
+  final AbstractImplementor _implementator;
 
   AbstractionX(this._implementator);
 
@@ -23,7 +23,7 @@ class AbstractionX implements Abstraction {
 
 /// Implements interface defined by Abstraction in specific way (aka Y)
 class AbstractionY implements Abstraction {
-  final AbstractImplementator _implementator;
+  final AbstractImplementor _implementator;
 
   AbstractionY(this._implementator);
 

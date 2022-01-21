@@ -5,25 +5,25 @@ import 'package:test/test.dart';
 import 'package:dart/bridge.dart';
 import 'bridge_test.mocks.dart';
 
-@GenerateMocks([AbstractImplementator])
+@GenerateMocks([AbstractImplementor])
 void main() {
-  late AbstractImplementator implementator;
+  late AbstractImplementor implementor;
 
   setUp(() {
-    implementator = MockAbstractImplementator();
+    implementor = MockAbstractImplementor();
   });
 
   test("operationImp is called", () {
-    var sut = AbstractionX(implementator);
+    var sut = AbstractionX(implementor);
 
     sut.operation();
-    verify(implementator.operationImp());
+    verify(implementor.operationImp());
   });
 
   test("operationImp is called", () {
-    var sut = AbstractionX(implementator);
+    var sut = AbstractionX(implementor);
 
     sut.operation();
-    verify(implementator.operationImp());
+    verify(implementor.operationImp());
   });
 }

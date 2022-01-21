@@ -1,30 +1,29 @@
 import 'package:dart/bridge.dart';
 import 'dart:io';
 
-class ImplementatorA implements AbstractImplementator {
+class ImplementorA implements AbstractImplementor {
+  @override
+  void operationImp() => print('specific operation from ImplementorA');
+}
+
+class ImplementorB implements AbstractImplementor {
   @override
   void operationImp() => print(this);
 }
 
-class ImplementatorB implements AbstractImplementator {
-  @override
-  void operationImp() => print('$this provides implementation');
-}
-
 class RefinedAbstractionX extends AbstractionX {
-  RefinedAbstractionX(ImplementatorA imp) : super(imp);
+  RefinedAbstractionX(ImplementorA imp) : super(imp);
 
   @override
   void operation() {
-    stdout.write('$this implemented by ');
+    stdout.write('Refined operation from AbstractionX is implemented by ');
     super.operation();
   }
 }
 
 void main() {
-  var abstractionX = RefinedAbstractionX(ImplementatorA());
-  var abstractionY = AbstractionY(ImplementatorB());
+  var abstractionX = RefinedAbstractionX(ImplementorA());
+  var abstractionY = AbstractionY(ImplementorB());
 
   abstractionX.operation();
-  abstractionY.operation();
 }

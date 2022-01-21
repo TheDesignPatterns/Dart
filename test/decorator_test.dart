@@ -20,7 +20,7 @@ void main() {
     expect(fooBar.operation(), 'FooBar');
   });
 
-  test('element "Foo" is decorated by "Bar" followed by "Baz"', () {
+  test('"Foo" is decorated by "Bar" followed by "Baz"', () {
     var fooBarBaz = Decorator(Decorator(foo, 'Bar'), 'Baz');
 
     expect(fooBarBaz.operation(), 'FooBarBaz');
