@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 /// A target interface that Client uses
 abstract class AbstractTarget {
 	String request(String input);
@@ -20,7 +22,7 @@ abstract class AbstractAdaptee {
 	Runes specificRequest(Runes input);
 }
 
-/// A specific entity that converts input to output in reverse order
+/// An Adaptee that puts Runes in reverse order
 class Adaptee implements AbstractAdaptee {
 	@override
 	Runes specificRequest(Runes input) => String.fromCharCodes(input.toList().reversed).runes;

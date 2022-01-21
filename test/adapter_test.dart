@@ -11,22 +11,22 @@ void main() {
 
   setUp(() {
     adaptee = MockAbstractAdaptee();
-    when(adaptee.specificRequest('oof'.runes)).thenReturn('foo'.runes);
   });
 
-  group('adaptee', () { 
-    test('Runes are reversed', () {
+  group('Adaptee', () {
+    test('Runes are put in reverse order', () {
       var adaptee = Adaptee();
 
-      expect(adaptee.specificRequest('rab'.runes), 'bar'.runes);
+      expect(adaptee.specificRequest('bar'.runes), 'rab'.runes);
     });
   });
 
-  group('adapter', () { 
-    test('Strings are adapted to Runes', () {
+  group('Adapter', () {
+    test('Input/Output string is adapted to/from Runes', () {
       var adapter = Adapter(adaptee);
 
-      expect(adapter.request('oof'), 'foo');
+      when(adaptee.specificRequest('foo'.runes)).thenReturn('oof'.runes);
+      expect(adapter.request('foo'), 'oof');
     });
   });
 }
