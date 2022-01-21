@@ -7,16 +7,23 @@ import 'decorator_test.mocks.dart';
 
 @GenerateMocks([AbstractElement])
 void main() {
-  late AbstractElement element;
+  late AbstractElement elementMock;
 
   setUp(() {
-    element = MockAbstractElement();
+    elementMock = MockAbstractElement();
   });
 
-  test("verify Decorator", () {
-    var sut = Decorator(element);
+  test('"Foo" is decorated by "Bar"', () {
+    var sut = Decorator(elementMock, 'Bar');
 
-    sut.operation();
-    verify(element.operation());
+    when(elementMock.operation()).thenReturn('Foo');
+    expect(sut.operation(), 'FooBar');
+  });
+
+  test('"Foo" is decorated by "Bar" followed by "Baz"', () {
+    var sut = Decorator(Decorator(elementMock, 'Bar'), 'Baz');
+
+    when(elementMock.operation()).thenReturn('Foo');
+    expect(sut.operation(), 'FooBarBaz');
   });
 }

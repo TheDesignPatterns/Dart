@@ -1,14 +1,15 @@
+typedef Result = String;
+
 abstract class AbstractElement {
-  void operation();
+  Result operation();
 }
 
 class Decorator implements AbstractElement {
   final AbstractElement _element;
+  final String _name;
 
-  const Decorator(this._element);
+  const Decorator(this._element, this._name);
 
   @override
-  void operation() {
-    _element.operation();
-  }
+  Result operation() => '${_element.operation()}$_name';
 }

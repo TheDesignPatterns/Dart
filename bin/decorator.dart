@@ -1,12 +1,20 @@
 import 'package:dart/decorator.dart';
 
 class Element implements AbstractElement {
+  final String _name;
+
+  const Element(this._name);
+
   @override
-  void operation() => print('$this has been decorated');
+  Result operation() => _name;
 }
 
 void main() {
-  AbstractElement decorator = Decorator(Element());
+  AbstractElement foo = Element('Foo');
+  AbstractElement fooBar = Decorator(foo, 'Bar');
+  AbstractElement fooBarBaz = Decorator(fooBar, 'Baz');
 
-  decorator.operation();
+  print(foo.operation());
+  print(fooBar.operation());
+  print(fooBarBaz.operation());
 }
