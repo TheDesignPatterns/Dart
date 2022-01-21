@@ -1,11 +1,11 @@
-/// A target interface that Client uses
+/// A target interface that client uses
 abstract class AbstractTarget {
   String request(String input);
 }
 
 /// An adapter that adapts to target interface
 ///
-/// Input/Output in form of String is adapted to/from Runes
+/// String is adapted to/from Runes (Unicode)
 class Adapter implements AbstractTarget {
   final AbstractAdaptee _adaptee;
 
