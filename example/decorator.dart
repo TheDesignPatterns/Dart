@@ -10,7 +10,7 @@ void main() {
   var fooBar = Decorator(foo, 'Bar');
   var fooBarBaz = Decorator(fooBar, 'Baz');
 
-  print(foo.operation());
-  print(fooBar.operation());
-  print(fooBarBaz.operation());
+  print(foo.operation()); // prints Foo
+  print(fooBar.operation()); // prints FooBar
+  print(fooBarBaz.operation()); // prints FooBarBaz
 }
