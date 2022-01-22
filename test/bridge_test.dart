@@ -7,16 +7,25 @@ import 'bridge_test.mocks.dart';
 
 @GenerateMocks([AbstractImplementor])
 void main() {
-  late AbstractImplementor implementor;
+  group('Abstraction', () {
+    test('Foo propagates input/output to/from implementor', () {
+      var barMock = MockAbstractImplementor();
+      var foo = Foo('=>', barMock);
 
-  setUp(() {
-    implementor = MockAbstractImplementor();
+      when(barMock.operationImp('Foo => ')).thenReturn('Foo => bar');
+      expect(foo.operation(), 'Foo => bar');
+    });
   });
 
-  test("operationImp is called", () {
-    var sut = RefinedAbstraction(implementor);
+  group('Implementor', () {
+    test('Bar addes "bar" to input string', () {
+      var bar = Bar();
+      expect(bar.operationImp('Foo '), 'Foo bar');
+    });
 
-    sut.operation();
-    verify(implementor.operationImp());
+    test('Baz adds "baz" to input string and upper cases it', () {
+      var baz = Baz();
+      expect(baz.operationImp('bar '), 'BAR BAZ');
+    });
   });
 }
