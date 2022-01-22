@@ -14,14 +14,7 @@ void main() {
   });
 
   test("operationImp is called", () {
-    var sut = AbstractionX(implementor);
-
-    sut.operation();
-    verify(implementor.operationImp());
-  });
-
-  test("operationImp is called", () {
-    var sut = AbstractionX(implementor);
+    var sut = RefinedAbstraction(implementor);
 
     sut.operation();
     verify(implementor.operationImp());

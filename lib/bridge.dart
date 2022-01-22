@@ -11,21 +11,11 @@ abstract class AbstractImplementor {
   void operationImp();
 }
 
-/// Implements interface defined by Abstraction in specific way (aka X)
-class AbstractionX implements Abstraction {
+/// Implements interface defined by Abstraction in specific way
+class RefinedAbstraction implements Abstraction {
   final AbstractImplementor _implementator;
 
-  AbstractionX(this._implementator);
-
-  @override
-  void operation() => _implementator.operationImp();
-}
-
-/// Implements interface defined by Abstraction in specific way (aka Y)
-class AbstractionY implements Abstraction {
-  final AbstractImplementor _implementator;
-
-  AbstractionY(this._implementator);
+  RefinedAbstraction(this._implementator);
 
   @override
   void operation() => _implementator.operationImp();
