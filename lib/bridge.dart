@@ -13,7 +13,7 @@ class Foo implements Abstraction {
   Foo(this._text, this._implementor);
 
   @override
-  String operation() => _implementor.operationImp('Foo $_text ');
+  String operation() => _implementor.operationImp('Foo$_text');
 }
 
 class Bar implements AbstractImplementor {

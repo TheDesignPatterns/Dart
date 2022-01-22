@@ -12,8 +12,8 @@ void main() {
       var barMock = MockAbstractImplementor();
       var foo = Foo('=>', barMock);
 
-      when(barMock.operationImp('Foo => ')).thenReturn('Foo => Bar');
-      expect(foo.operation(), 'Foo => Bar');
+      when(barMock.operationImp('Foo=>')).thenReturn('Foo=>Bar');
+      expect(foo.operation(), 'Foo=>Bar');
     });
   });
 
@@ -25,7 +25,7 @@ void main() {
 
     test('Baz adds "baz" to input string and upper cases it', () {
       var baz = Baz();
-      expect(baz.operationImp('bar '), 'BAR BAZ');
+      expect(baz.operationImp('bar-'), 'BAR-BAZ');
     });
   });
 }

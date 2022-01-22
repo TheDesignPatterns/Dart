@@ -1,12 +1,12 @@
 import 'package:dart/bridge.dart';
 
 void main() {
-  var fooBar = Foo('is implemented by', Bar());
+  var fooBar = Foo(' is implemented by ', Bar());
   var fooBaz = Foo('=>', Baz());
 
-  // prints "Foo is implemented by bar"
+  // Prints "Foo is implemented by bar".
   print(fooBar.operation());
 
-  // prints "FOO => BAZ"
+  // Prints "FOO=>BAZ".
   print(fooBaz.operation());
 }
