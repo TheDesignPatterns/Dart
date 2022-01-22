@@ -12,8 +12,8 @@ void main() {
       var barMock = MockAbstractImplementor();
       var foo = Foo('=>', barMock);
 
-      when(barMock.operationImp('Foo => ')).thenReturn('Foo => bar');
-      expect(foo.operation(), 'Foo => bar');
+      when(barMock.operationImp('Foo => ')).thenReturn('Foo => Bar');
+      expect(foo.operation(), 'Foo => Bar');
     });
   });
 
