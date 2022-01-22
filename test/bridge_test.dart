@@ -18,7 +18,7 @@ void main() {
   });
 
   group('Implementor', () {
-    test('Bar addes "bar" to input string', () {
+    test('Bar adds "bar" to input string', () {
       var bar = Bar();
       expect(bar.operationImp('Foo '), 'Foo bar');
     });

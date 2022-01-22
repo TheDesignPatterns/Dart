@@ -25,4 +25,3 @@ class Baz implements AbstractImplementor {
   @override
   String operationImp(String input) => '${input}baz'.toUpperCase();
 }
-
