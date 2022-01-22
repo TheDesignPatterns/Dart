@@ -8,15 +8,15 @@ abstract class AbstractFlyweight {
 
 /// adds storage for intrinsic state, objects of this class must be shareable
 class Flyweight implements AbstractFlyweight {
-  final IntrinsicState _key; // key represents intrinsic state
+  final IntrinsicState key; // key represents intrinsic state
 
   static final _cache = <IntrinsicState, Flyweight>{};
 
-  factory Flyweight(IntrinsicState _key) {
-    return _cache.putIfAbsent(_key, () => Flyweight._internal(_key));
+  factory Flyweight(IntrinsicState key) {
+    return _cache.putIfAbsent(key, () => Flyweight._internal(key));
   }
 
-  Flyweight._internal(this._key);
+  Flyweight._internal(this.key);
 
   @override
   void operation(ExtrinsicState extrinsicState) => print(this);
