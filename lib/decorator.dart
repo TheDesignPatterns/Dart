@@ -1,7 +1,5 @@
-typedef Result = String;
-
 abstract class AbstractElement {
-  Result operation();
+  String operation();
 }
 
 class Decorator implements AbstractElement {
@@ -11,5 +9,10 @@ class Decorator implements AbstractElement {
   const Decorator(this._element, this._name);
 
   @override
-  Result operation() => '${_element.operation()}$_name';
+  String operation() => '${_element.operation()}$_name';
+}
+
+class Foo implements AbstractElement {
+  @override
+  String operation() => 'Foo';
 }

@@ -7,22 +7,30 @@ import 'decorator_test.mocks.dart';
 
 @GenerateMocks([AbstractElement])
 void main() {
-  late AbstractElement foo;
+  late AbstractElement fooMock;
 
   setUp(() {
-    foo = MockAbstractElement();
-    when(foo.operation()).thenReturn('Foo');
+    fooMock = MockAbstractElement();
+    when(fooMock.operation()).thenReturn('Foo');
   });
 
-  test('"Foo" is decorated by "Bar"', () {
-    var fooBar = Decorator(foo, 'Bar');
+  group('Decorator', () {
+    test('extends given element with "Bar"', () {
+      var fooMockBar = Decorator(fooMock, 'Bar');
 
-    expect(fooBar.operation(), 'FooBar');
+      expect(fooMockBar.operation(), 'FooBar');
+    });
+
+    test('extends given element with "Bar" followed by "Baz"', () {
+      var fooMockBarBaz = Decorator(Decorator(fooMock, 'Bar'), 'Baz');
+
+      expect(fooMockBarBaz.operation(), 'FooBarBaz');
+    });
   });
 
-  test('"Foo" is decorated by "Bar" followed by "Baz"', () {
-    var fooBarBaz = Decorator(Decorator(foo, 'Bar'), 'Baz');
+  test('Foo returns "Foo"', () {
+    var foo = Foo();
 
-    expect(fooBarBaz.operation(), 'FooBarBaz');
+    expect(foo.operation(), 'Foo');
   });
 }
