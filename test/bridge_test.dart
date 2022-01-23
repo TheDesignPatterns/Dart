@@ -12,20 +12,20 @@ void main() {
       var barMock = MockAbstractImplementor();
       var foo = Foo('=>', barMock);
 
-      when(barMock.operationImp('Foo=>')).thenReturn('Foo=>Bar');
+      when(barMock.operationImp()).thenReturn('Bar');
       expect(foo.operation(), 'Foo=>Bar');
     });
   });
 
   group('Implementor', () {
-    test('Bar adds "bar" to input string', () {
+    test('Bar returns "bar"', () {
       var bar = Bar();
-      expect(bar.operationImp('Foo '), 'Foo bar');
+      expect(bar.operationImp(), 'bar');
     });
 
-    test('Baz adds "baz" to input string and upper cases it', () {
+    test('Baz returns "baz" in upper case', () {
       var baz = Baz();
-      expect(baz.operationImp('bar-'), 'BAR-BAZ');
+      expect(baz.operationImp(), 'BAZ');
     });
   });
 }

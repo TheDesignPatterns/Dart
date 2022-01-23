@@ -3,25 +3,25 @@ abstract class Abstraction {
 }
 
 abstract class AbstractImplementor {
-  String operationImp(String input);
+  String operationImp();
 }
 
 class Foo implements Abstraction {
-  final String _text;
+  final String _name;
   final AbstractImplementor _implementor;
 
-  Foo(this._text, this._implementor);
+  Foo(this._name, this._implementor);
 
   @override
-  String operation() => _implementor.operationImp('Foo$_text');
+  String operation() => 'Foo$_name${_implementor.operationImp()}';
 }
 
 class Bar implements AbstractImplementor {
   @override
-  String operationImp(String input) => '${input}bar';
+  String operationImp() => 'bar';
 }
 
 class Baz implements AbstractImplementor {
   @override
-  String operationImp(String input) => '${input}baz'.toUpperCase();
+  String operationImp() => 'baz'.toUpperCase();
 }
