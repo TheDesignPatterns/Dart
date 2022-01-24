@@ -32,11 +32,7 @@ class Facade implements AbstractFacade {
 
   @override
   String handle() =>
-      _subsystemFoo.handle() +
-      '|' +
-      _subsystemBar.handle() +
-      '|' +
-      _subsystemBaz.handle();
+      '${_subsystemFoo.handle()}|${_subsystemBar.handle()}|${_subsystemBaz.handle()}';
 }
 
 class SubsystemFactory implements AbstractSubsystemFactory {

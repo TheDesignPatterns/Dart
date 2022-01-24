@@ -26,33 +26,29 @@ void main() {
     when(factory.createFoo()).thenReturn(subsystemFoo);
     when(factory.createBar()).thenReturn(subsystemBar);
     when(factory.createBaz()).thenReturn(subsystemBaz);
-  });
-
-  test('Facade returns "Foo|Bar|Baz"', () {
-    AbstractFacade facade = Facade(factory);
 
     when(subsystemFoo.handle()).thenReturn('Foo');
     when(subsystemBar.handle()).thenReturn('Bar');
     when(subsystemBaz.handle()).thenReturn('Baz');
+  });
 
+  test('Facade returns "Foo|Bar|Baz"', () {
+    final facade = Facade(factory);
     expect(facade.handle(), 'Foo|Bar|Baz');
   });
 
   test('SubsystemFoo returns "Foo"', () {
-    var foo = SubsystemFoo();
-
+    final foo = SubsystemFoo();
     expect(foo.handle(), 'Foo');
   });
 
   test('SubsystemBar returns "Bar"', () {
-    var foo = SubsystemBar();
-
-    expect(foo.handle(), 'Bar');
+    final bar = SubsystemBar();
+    expect(bar.handle(), 'Bar');
   });
 
   test('SubsystemBaz returns "Baz"', () {
-    var foo = SubsystemBaz();
-
-    expect(foo.handle(), 'Baz');
+    final baz = SubsystemBaz();
+    expect(baz.handle(), 'Baz');
   });
 }
