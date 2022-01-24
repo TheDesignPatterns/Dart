@@ -7,26 +7,20 @@ import 'adapter_test.mocks.dart';
 
 @GenerateMocks([AbstractAdaptee])
 void main() {
-  late AbstractAdaptee adaptee;
+  late AbstractAdaptee adapteeMock;
 
   setUp(() {
-    adaptee = MockAbstractAdaptee();
+    adapteeMock = MockAbstractAdaptee();
+    when(adapteeMock.specificRequest('oof'.runes)).thenReturn('foo'.runes);
   });
 
-  group('Adaptee', () {
-    test('Runes are put in reverse order', () {
-      var adaptee = Adaptee();
-
-      expect(adaptee.specificRequest('bar'.runes), 'rab'.runes);
-    });
+  test('Adapter adapts string to/from runes', () {
+    final adapter = Adapter(adapteeMock);
+    expect(adapter.request('oof'), 'foo');
   });
 
-  group('Adapter', () {
-    test('Input/Output string is adapted to/from Runes', () {
-      var adapter = Adapter(adaptee);
-
-      when(adaptee.specificRequest('foo'.runes)).thenReturn('oof'.runes);
-      expect(adapter.request('foo'), 'oof');
-    });
+  test('Adaptee returns given runes in reverse order', () {
+    final adaptee = Adaptee();
+    expect(adaptee.specificRequest('rab'.runes), 'bar'.runes);
   });
 }
