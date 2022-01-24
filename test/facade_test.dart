@@ -12,28 +12,28 @@ import 'facade_test.mocks.dart';
   AbstractSubsystemBaz
 ])
 void main() {
-  late AbstractSubsystemFactory factoryMock;
-  late AbstractSubsystemFoo subsystemFooMock;
-  late AbstractSubsystemBar subsystemBarMock;
-  late AbstractSubsystemBaz subsystemBazMock;
+  late AbstractSubsystemFactory factory;
+  late AbstractSubsystemFoo subsystemFoo;
+  late AbstractSubsystemBar subsystemBar;
+  late AbstractSubsystemBaz subsystemBaz;
 
   setUp(() {
-    factoryMock = MockAbstractSubsystemFactory();
-    subsystemFooMock = MockAbstractSubsystemFoo();
-    subsystemBarMock = MockAbstractSubsystemBar();
-    subsystemBazMock = MockAbstractSubsystemBaz();
+    factory = MockAbstractSubsystemFactory();
+    subsystemFoo = MockAbstractSubsystemFoo();
+    subsystemBar = MockAbstractSubsystemBar();
+    subsystemBaz = MockAbstractSubsystemBaz();
 
-    when(factoryMock.createFoo()).thenReturn(subsystemFooMock);
-    when(factoryMock.createBar()).thenReturn(subsystemBarMock);
-    when(factoryMock.createBaz()).thenReturn(subsystemBazMock);
+    when(factory.createFoo()).thenReturn(subsystemFoo);
+    when(factory.createBar()).thenReturn(subsystemBar);
+    when(factory.createBaz()).thenReturn(subsystemBaz);
   });
 
   test('Facade returns "Foo|Bar|Baz"', () {
-    AbstractFacade facade = Facade(factoryMock);
+    AbstractFacade facade = Facade(factory);
 
-    when(subsystemFooMock.handle()).thenReturn('Foo');
-    when(subsystemBarMock.handle()).thenReturn('Bar');
-    when(subsystemBazMock.handle()).thenReturn('Baz');
+    when(subsystemFoo.handle()).thenReturn('Foo');
+    when(subsystemBar.handle()).thenReturn('Bar');
+    when(subsystemBaz.handle()).thenReturn('Baz');
 
     expect(facade.handle(), 'Foo|Bar|Baz');
   });
