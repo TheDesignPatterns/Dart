@@ -1,18 +1,18 @@
-abstract class AbstractElement {
-  String operation();
+abstract class AbstractComponent<R> {
+  R operation();
 }
 
-class Decorator implements AbstractElement {
-  final AbstractElement _element;
+class Foo implements AbstractComponent<String> {
+  @override
+  String operation() => 'Foo';
+}
+
+class Decorator implements AbstractComponent<String> {
+  final AbstractComponent _element;
   final String _name;
 
   const Decorator(this._element, this._name);
 
   @override
-  String operation() => '${_element.operation()}$_name';
-}
-
-class Foo implements AbstractElement {
-  @override
-  String operation() => 'Foo';
+  String operation() => _element.operation() + _name;
 }
