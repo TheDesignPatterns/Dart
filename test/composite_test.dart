@@ -7,16 +7,20 @@ import 'composite_test.mocks.dart';
 
 @GenerateMocks([AbstractComponent])
 void main() {
-  test('Foo composes structure from given elements', () {
-    var barMock = MockAbstractComponent();
-    var foo = Foo([barMock, Foo([barMock, barMock])]);
+  late AbstractComponent barMock;
 
+  setUp(() {
+    barMock = MockAbstractComponent();
     when(barMock.operation()).thenReturn('barMock');
+  });
+
+  test('Foo composes structure from given elements', () {
+    final foo = Foo([barMock, Foo([barMock, barMock])]);
     expect(foo.operation(), 'Foo([barMock, Foo([barMock, barMock])])');
   });
 
   test('Bar returns "Bar()"', () {
-    var bar = Bar();
+    final bar = Bar();
     expect(bar.operation(), 'Bar()');
   });
 }
