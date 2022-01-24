@@ -21,4 +21,3 @@ class Bar implements AbstractComponent {
   @override
   String operation() => 'Bar()';
 }
-

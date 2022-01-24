@@ -7,33 +7,52 @@ import 'facade_test.mocks.dart';
 
 @GenerateMocks([
   AbstractSubsystemFactory,
-  AbstractSubsystemX,
-  AbstractSubsystemY,
-  AbstractSubsystemZ
+  AbstractSubsystemFoo,
+  AbstractSubsystemBar,
+  AbstractSubsystemBaz
 ])
 void main() {
   late AbstractSubsystemFactory factoryMock;
-  late AbstractSubsystemX subsystemXMock;
-  late AbstractSubsystemY subsystemYMock;
-  late AbstractSubsystemZ subsystemZMock;
+  late AbstractSubsystemFoo subsystemFooMock;
+  late AbstractSubsystemBar subsystemBarMock;
+  late AbstractSubsystemBaz subsystemBazMock;
 
   setUp(() {
     factoryMock = MockAbstractSubsystemFactory();
-    subsystemXMock = MockAbstractSubsystemX();
-    subsystemYMock = MockAbstractSubsystemY();
-    subsystemZMock = MockAbstractSubsystemZ();
+    subsystemFooMock = MockAbstractSubsystemFoo();
+    subsystemBarMock = MockAbstractSubsystemBar();
+    subsystemBazMock = MockAbstractSubsystemBaz();
 
-    when(factoryMock.createX()).thenReturn(subsystemXMock);
-    when(factoryMock.createY()).thenReturn(subsystemYMock);
-    when(factoryMock.createZ()).thenReturn(subsystemZMock);
+    when(factoryMock.createFoo()).thenReturn(subsystemFooMock);
+    when(factoryMock.createBar()).thenReturn(subsystemBarMock);
+    when(factoryMock.createBaz()).thenReturn(subsystemBazMock);
   });
 
-  test("verify specific subsystems are called", () {
-    AbstractFacade sut = Facade(factoryMock);
-    sut.handle();
+  test('Facade returns "Foo|Bar|Baz"', () {
+    AbstractFacade facade = Facade(factoryMock);
 
-    verify(subsystemXMock.handle());
-    verify(subsystemYMock.handle());
-    verify(subsystemZMock.handle());
+    when(subsystemFooMock.handle()).thenReturn('Foo');
+    when(subsystemBarMock.handle()).thenReturn('Bar');
+    when(subsystemBazMock.handle()).thenReturn('Baz');
+
+    expect(facade.handle(), 'Foo|Bar|Baz');
+  });
+
+  test('SubsystemFoo returns "Foo"', () {
+    var foo = SubsystemFoo();
+
+    expect(foo.handle(), 'Foo');
+  });
+
+  test('SubsystemBar returns "Bar"', () {
+    var foo = SubsystemBar();
+
+    expect(foo.handle(), 'Bar');
+  });
+
+  test('SubsystemBaz returns "Baz"', () {
+    var foo = SubsystemBaz();
+
+    expect(foo.handle(), 'Baz');
   });
 }
