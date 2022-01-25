@@ -11,23 +11,23 @@ void main() {
 
   setUp(() {
     handlerMock = MockAbstractHandler();
-    when(handlerMock.handleRequest(Request.foo)).thenReturn('Foo');
-    when(handlerMock.handleRequest(Request.bar)).thenReturn('Bar');
-    when(handlerMock.handleRequest(Request.baz)).thenReturn('Baz');
+    when(handlerMock.handleRequest(Request.foo)).thenReturn('FooMock');
+    when(handlerMock.handleRequest(Request.bar)).thenReturn('BarMock');
+    when(handlerMock.handleRequest(Request.baz)).thenReturn('BazMock');
   });
 
   test('Foo handler returns corresponding name', () {
     final handler = Foo(handlerMock);
     expect(handler.handleRequest(Request.foo), 'Foo');
-    expect(handler.handleRequest(Request.bar), 'Bar');
-    expect(handler.handleRequest(Request.baz), 'Baz');
+    expect(handler.handleRequest(Request.bar), 'BarMock');
+    expect(handler.handleRequest(Request.baz), 'BazMock');
   });
 
   test('Bar handler returns corresponding name', () {
     final handler = Bar(handlerMock);
-    expect(handler.handleRequest(Request.foo), 'Foo');
+    expect(handler.handleRequest(Request.foo), 'FooMock');
     expect(handler.handleRequest(Request.bar), 'Bar');
-    expect(handler.handleRequest(Request.baz), 'Baz');
+    expect(handler.handleRequest(Request.baz), 'BazMock');
   });
 
   test('Baz handler returns "Baz"', () {
