@@ -2,7 +2,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
-import 'package:dart/composite.dart';
+import 'package:dp/composite.dart';
 import 'composite_test.mocks.dart';
 
 @GenerateMocks([AbstractComponent])

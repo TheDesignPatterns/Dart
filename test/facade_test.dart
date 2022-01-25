@@ -2,7 +2,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
-import 'package:dart/facade.dart';
+import 'package:dp/facade.dart';
 import 'facade_test.mocks.dart';
 
 @GenerateMocks([

@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:dart/flyweight.dart';
+import 'package:dp/flyweight.dart';
 
 void main() {
   group('Flyweight(Bar)', () {

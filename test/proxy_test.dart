@@ -2,7 +2,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
-import 'package:dart/proxy.dart';
+import 'package:dp/proxy.dart';
 import 'proxy_test.mocks.dart';
 
 @GenerateMocks([AbstractSubject])

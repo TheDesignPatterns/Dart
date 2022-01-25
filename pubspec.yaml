@@ -1,4 +1,4 @@
-name: dart
+name: dp
 description: Design Patterns implemented in Dart
 version: 1.0.0
 # homepage: https://www.example.com
@@ -11,5 +11,5 @@ dev_dependencies:
   test: ^1.20.1
   build_runner: ^2.0.0
 
-dependencies: 
+dependencies:
   mockito: ^5.0.17

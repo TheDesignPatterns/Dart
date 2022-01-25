@@ -1,4 +1,4 @@
-import 'package:dart/adapter.dart';
+import 'package:dp/adapter.dart';
 
 void main() {
   var adaptee = Adaptee();

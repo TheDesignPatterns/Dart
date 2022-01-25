@@ -1,4 +1,4 @@
-import 'package:dart/proxy.dart';
+import 'package:dp/proxy.dart';
 
 void main() {
   var realSubject = RealSubject();

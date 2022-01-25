@@ -1,4 +1,4 @@
-import 'package:dart/composite.dart';
+import 'package:dp/composite.dart';
 
 void main() {
   var composite = Foo([Bar(), Foo([Bar(), Bar()]), Bar()]);

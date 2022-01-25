@@ -1,5 +1,5 @@
-import 'package:dart/flyweight.dart';
-import 'package:dart/composite.dart';
+import 'package:dp/flyweight.dart';
+import 'package:dp/composite.dart';
 
 void main() {
   var flyweights = Foo([Flyweight('Bar'), Foo([Flyweight('Bar'), Flyweight('Baz')])]);

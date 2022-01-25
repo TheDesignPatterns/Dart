@@ -2,7 +2,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
-import 'package:dart/bridge.dart';
+import 'package:dp/bridge.dart';
 import 'bridge_test.mocks.dart';
 
 @GenerateMocks([AbstractImplementor])

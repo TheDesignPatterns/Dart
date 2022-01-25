@@ -2,7 +2,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
-import 'package:dart/decorator.dart';
+import 'package:dp/decorator.dart';
 import 'decorator_test.mocks.dart';
 
 @GenerateMocks([], customMocks: [MockSpec<AbstractComponent<String>>()])

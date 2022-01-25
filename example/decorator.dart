@@ -1,4 +1,4 @@
-import 'package:dart/decorator.dart';
+import 'package:dp/decorator.dart';
 
 void main() {
   var foo = Foo();

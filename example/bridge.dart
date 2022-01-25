@@ -1,4 +1,4 @@
-import 'package:dart/bridge.dart';
+import 'package:dp/bridge.dart';
 
 void main() {
   var fooBar = Foo(' is implemented by ', Bar());
