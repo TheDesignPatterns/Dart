@@ -11,21 +11,22 @@ void main() {
 
   setUp(() {
     subjectMock = MockAbstractSubject();
+    when(subjectMock.handle(Request.Foo)).thenReturn(Status.handled);
+    when(subjectMock.handle(Request.Bar)).thenReturn(Status.notSupported);
+    when(subjectMock.handle(Request.Baz)).thenReturn(Status.notSupported);
   });
 
-  test("verify handle is called for permitted request", () {
-    var sut = Proxy(subjectMock, Request.A);
-
-    when(subjectMock.handle(Request.A)).thenReturn(Result.accepted);
-
-    expect(sut.handle(Request.A), Result.accepted);
-    verify(subjectMock.handle(Request.A));
+  test("Subject handles all requests", () {
+    final subject = RealSubject();
+    expect(subject.handle(Request.Foo), Status.handled);
+    expect(subject.handle(Request.Bar), Status.handled);
+    expect(subject.handle(Request.Baz), Status.handled);
   });
 
-  test("verify handle 'proxied' for NOT permitted request", () {
-    var sut = Proxy(subjectMock, Request.A);
-
-    expect(sut.handle(Request.B), Result.rejected);
-    verifyNever(subjectMock.handle(Request.B));
+  test("Proxy handles only supported requests", () {
+    final proxy = Proxy(subjectMock, notSupported: [Request.Bar, Request.Baz]);
+    expect(proxy.handle(Request.Foo), Status.handled);
+    expect(proxy.handle(Request.Bar), Status.notSupported);
+    expect(proxy.handle(Request.Baz), Status.notSupported);
   });
 }

@@ -1,17 +1,24 @@
-enum Request { A, B }
-enum Result { accepted, rejected }
+enum Request { Foo, Bar, Baz }
+enum Status { handled, notSupported }
 
 abstract class AbstractSubject {
-  Result handle(Request request);
+  Status handle(Request request);
 }
 
 class Proxy implements AbstractSubject {
   final AbstractSubject _subject;
-  final Request _accepted;
+  final List<Request> _notSupported;
 
-  const Proxy(this._subject, this._accepted);
+  Proxy(this._subject, {required List<Request> notSupported})
+      : _notSupported = notSupported;
 
   @override
-  Result handle(Request request) =>
-      request == _accepted ? _subject.handle(request) : Result.rejected;
+  Status handle(Request request) => _notSupported.contains(request)
+      ? Status.notSupported
+      : _subject.handle(request);
+}
+
+class RealSubject implements AbstractSubject {
+  @override
+  Status handle(Request request) => Status.handled;
 }
