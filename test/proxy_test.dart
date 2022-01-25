@@ -11,22 +11,22 @@ void main() {
 
   setUp(() {
     subjectMock = MockAbstractSubject();
-    when(subjectMock.handle(Request.Foo)).thenReturn(Status.handled);
-    when(subjectMock.handle(Request.Bar)).thenReturn(Status.notSupported);
-    when(subjectMock.handle(Request.Baz)).thenReturn(Status.notSupported);
+    when(subjectMock.handle(Request.foo)).thenReturn(Status.handled);
+    when(subjectMock.handle(Request.bar)).thenReturn(Status.notSupported);
+    when(subjectMock.handle(Request.baz)).thenReturn(Status.notSupported);
   });
 
   test("Subject handles all requests", () {
     final subject = RealSubject();
-    expect(subject.handle(Request.Foo), Status.handled);
-    expect(subject.handle(Request.Bar), Status.handled);
-    expect(subject.handle(Request.Baz), Status.handled);
+    expect(subject.handle(Request.foo), Status.handled);
+    expect(subject.handle(Request.bar), Status.handled);
+    expect(subject.handle(Request.baz), Status.handled);
   });
 
   test("Proxy handles only supported requests", () {
-    final proxy = Proxy(subjectMock, notSupported: [Request.Bar, Request.Baz]);
-    expect(proxy.handle(Request.Foo), Status.handled);
-    expect(proxy.handle(Request.Bar), Status.notSupported);
-    expect(proxy.handle(Request.Baz), Status.notSupported);
+    final proxy = Proxy(subjectMock, notSupported: [Request.bar, Request.baz]);
+    expect(proxy.handle(Request.foo), Status.handled);
+    expect(proxy.handle(Request.bar), Status.notSupported);
+    expect(proxy.handle(Request.baz), Status.notSupported);
   });
 }

@@ -1,4 +1,4 @@
-enum Request { Foo, Bar, Baz }
+enum Request { foo, bar, baz }
 enum Status { handled, notSupported }
 
 abstract class AbstractSubject {
