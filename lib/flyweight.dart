@@ -1,37 +1,17 @@
-enum ExtrinsicState { X, Y }
-typedef IntrinsicState = String;
+import 'package:dart/composite.dart' as c;
+export 'package:dart/composite.dart' hide Bar;
 
-/// declares interface through which flyweights can receive and act on extrinsic state
-abstract class AbstractFlyweight {
-  void operation(ExtrinsicState extrinsicState);
-}
+class Flyweight implements c.AbstractComponent {
+  final String name; // name represents intrinsic state
 
-/// adds storage for intrinsic state, objects of this class must be shareable
-class Flyweight implements AbstractFlyweight {
-  final IntrinsicState key; // key represents intrinsic state
+  static final _cache = <String, Flyweight>{};
 
-  static final _cache = <IntrinsicState, Flyweight>{};
-
-  factory Flyweight(IntrinsicState key) {
-    return _cache.putIfAbsent(key, () => Flyweight._internal(key));
+  factory Flyweight(String name) {
+    return _cache.putIfAbsent(name, () => Flyweight._internal(name));
   }
 
-  Flyweight._internal(this.key);
+  Flyweight._internal(this.name);
 
   @override
-  void operation(ExtrinsicState extrinsicState) => print(this);
-}
-
-/// stores flyweight objects as structure
-class UnsharedFlyweight implements AbstractFlyweight {
-  final List<AbstractFlyweight> _flyweights;
-
-  UnsharedFlyweight(this._flyweights);
-
-  @override
-  void operation(ExtrinsicState extrinsicState) {
-    for (var flyweight in _flyweights) {
-      flyweight.operation(extrinsicState);
-    }
-  }
+  String operation() => "Flyweight('$name')";
 }
