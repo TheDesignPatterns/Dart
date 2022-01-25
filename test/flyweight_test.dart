@@ -8,7 +8,7 @@ void main() {
       expect(bar, Flyweight('Bar'));
     });
 
-    test('is not the same object for Flyweight(Baz)', () {
+    test('is not the same object as Flyweight(Baz)', () {
       final bar = Flyweight('Bar');
       expect(bar, isNot(Flyweight('Baz')));
     });
