@@ -6,8 +6,8 @@ class Product {
   final _partsA = <Foo>[];
   final _partsB = <Bar>[];
 
-  void addFoo(Foo p) => _partsA.add(p);
-  void addBar(Bar p) => _partsB.add(p);
+  void addFoo(Foo foo) => _partsA.add(foo);
+  void addBar(Bar bar) => _partsB.add(bar);
 
   void showParts() {
     print(_partsA);
