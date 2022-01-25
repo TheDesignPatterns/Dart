@@ -1,13 +1,13 @@
-class PartA {}
+class Foo {}
 
-class PartB {}
+class Bar {}
 
 class Product {
-  final _partsA = <PartA>[];
-  final _partsB = <PartB>[];
+  final _partsA = <Foo>[];
+  final _partsB = <Bar>[];
 
-  void addPartA(PartA p) => _partsA.add(p);
-  void addPartB(PartB p) => _partsB.add(p);
+  void addFoo(Foo p) => _partsA.add(p);
+  void addBar(Bar p) => _partsB.add(p);
 
   void showParts() {
     print(_partsA);
@@ -16,8 +16,8 @@ class Product {
 }
 
 abstract class AbstractBuilder {
-  void buildPartA();
-  void buildPartB();
+  void buildFoo();
+  void buildBar();
   Product getResult();
 }
 
@@ -25,10 +25,10 @@ class Builder implements AbstractBuilder {
   late final _product = Product();
 
   @override
-  void buildPartA() => _product.addPartA(PartA());
+  void buildFoo() => _product.addFoo(Foo());
 
   @override
-  void buildPartB() => _product.addPartB(PartB());
+  void buildBar() => _product.addBar(Bar());
 
   @override
   Product getResult() => _product;
@@ -40,8 +40,8 @@ class Director {
   Director(this._builder);
 
   Product construct() {
-    _builder.buildPartA();
-    _builder.buildPartB();
+    _builder.buildFoo();
+    _builder.buildBar();
     return _builder.getResult();
   }
 }
