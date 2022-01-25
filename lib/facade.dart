@@ -2,24 +2,6 @@ abstract class AbstractFacade {
   String handle();
 }
 
-abstract class AbstractSubsystemFoo {
-  String handle();
-}
-
-abstract class AbstractSubsystemBar {
-  String handle();
-}
-
-abstract class AbstractSubsystemBaz {
-  String handle();
-}
-
-abstract class AbstractSubsystemFactory {
-  AbstractSubsystemFoo createFoo();
-  AbstractSubsystemBar createBar();
-  AbstractSubsystemBaz createBaz();
-}
-
 class Facade implements AbstractFacade {
   final AbstractSubsystemFoo _subsystemFoo;
   final AbstractSubsystemBar _subsystemBar;
@@ -35,13 +17,8 @@ class Facade implements AbstractFacade {
       '${_subsystemFoo.handle()}|${_subsystemBar.handle()}|${_subsystemBaz.handle()}';
 }
 
-class SubsystemFactory implements AbstractSubsystemFactory {
-  @override
-  AbstractSubsystemFoo createFoo() => SubsystemFoo();
-  @override
-  AbstractSubsystemBar createBar() => SubsystemBar();
-  @override
-  AbstractSubsystemBaz createBaz() => SubsystemBaz();
+abstract class AbstractSubsystemFoo {
+  String handle();
 }
 
 class SubsystemFoo implements AbstractSubsystemFoo {
@@ -49,12 +26,35 @@ class SubsystemFoo implements AbstractSubsystemFoo {
   String handle() => 'Foo';
 }
 
+abstract class AbstractSubsystemBar {
+  String handle();
+}
+
 class SubsystemBar implements AbstractSubsystemBar {
   @override
   String handle() => 'Bar';
 }
 
+abstract class AbstractSubsystemBaz {
+  String handle();
+}
+
 class SubsystemBaz implements AbstractSubsystemBaz {
   @override
   String handle() => 'Baz';
+}
+
+abstract class AbstractSubsystemFactory {
+  AbstractSubsystemFoo createFoo();
+  AbstractSubsystemBar createBar();
+  AbstractSubsystemBaz createBaz();
+}
+
+class SubsystemFactory implements AbstractSubsystemFactory {
+  @override
+  AbstractSubsystemFoo createFoo() => SubsystemFoo();
+  @override
+  AbstractSubsystemBar createBar() => SubsystemBar();
+  @override
+  AbstractSubsystemBaz createBaz() => SubsystemBaz();
 }

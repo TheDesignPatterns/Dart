@@ -2,10 +2,6 @@ abstract class Abstraction {
   String operation();
 }
 
-abstract class AbstractImplementor {
-  String operationImp();
-}
-
 class Foo implements Abstraction {
   final String _name;
   final AbstractImplementor _implementor;
@@ -14,6 +10,10 @@ class Foo implements Abstraction {
 
   @override
   String operation() => 'Foo$_name${_implementor.operationImp()}';
+}
+
+abstract class AbstractImplementor {
+  String operationImp();
 }
 
 class Bar implements AbstractImplementor {

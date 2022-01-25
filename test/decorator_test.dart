@@ -14,7 +14,7 @@ void main() {
     when(fooMock.operation()).thenReturn('Foo');
   });
 
-  group('Decorator extends given component', () {
+  group('Decorator extends Foo component', () {
     test('with "Bar"', () {
       final fooBar = Decorator(fooMock, 'Bar');
       expect(fooBar.operation(), 'FooBar');

@@ -16,7 +16,7 @@ void main() {
     when(subjectMock.handle(Request.baz)).thenReturn(Status.notSupported);
   });
 
-  test("Subject handles all requests", () {
+  test("RealSubject handles all requests", () {
     final subject = RealSubject();
     expect(subject.handle(Request.foo), Status.handled);
     expect(subject.handle(Request.bar), Status.handled);

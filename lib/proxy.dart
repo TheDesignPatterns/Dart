@@ -5,6 +5,11 @@ abstract class AbstractSubject {
   Status handle(Request request);
 }
 
+class RealSubject implements AbstractSubject {
+  @override
+  Status handle(Request request) => Status.handled;
+}
+
 class Proxy implements AbstractSubject {
   final AbstractSubject _subject;
   final List<Request> _notSupported;
@@ -16,9 +21,4 @@ class Proxy implements AbstractSubject {
   Status handle(Request request) => _notSupported.contains(request)
       ? Status.notSupported
       : _subject.handle(request);
-}
-
-class RealSubject implements AbstractSubject {
-  @override
-  Status handle(Request request) => Status.handled;
 }
