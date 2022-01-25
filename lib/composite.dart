@@ -10,7 +10,7 @@ class Foo implements AbstractComponent {
   @override
   String operation() {
     var result = 'Foo([';
-    for (var i = 0; i < _components.length-1; i++) {
+    for (var i = 0; i < _components.length - 1; i++) {
       result += '${_components[i].operation()}, ';
     }
     return '$result${_components.last.operation()}])';
