@@ -1,8 +1,9 @@
 import 'package:dart/flyweight.dart';
+import 'package:dart/composite.dart';
 
 void main() {
-  var unsharedFlyweight = Foo([Flyweight('Bar'), Foo([Flyweight('Bar'), Flyweight('Baz')])]);
+  var flyweights = Foo([Flyweight('Bar'), Foo([Flyweight('Bar'), Flyweight('Baz')])]);
 
   // Prints "Foo([Flyweight('Bar'), Foo([Flyweight('Bar'), Flyweight('Baz')])])".
-  print(unsharedFlyweight.operation());
+  print(flyweights.operation());
 }

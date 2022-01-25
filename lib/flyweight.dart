@@ -1,5 +1,4 @@
-import 'package:dart/composite.dart' as c;
-export 'package:dart/composite.dart' hide Bar;
+import 'composite.dart' as c;
 
 class Flyweight implements c.AbstractComponent {
   final String name; // name represents intrinsic state
