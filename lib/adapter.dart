@@ -3,9 +3,7 @@ abstract class AbstractTarget {
   String request(String input);
 }
 
-/// An adapter that adapts to target interface
-///
-/// String is adapted to/from Runes (Unicode)
+/// An adapter that adapts String to/from Runes (integer Unicode points)
 class Adapter implements AbstractTarget {
   final AbstractAdaptee _adaptee;
 
