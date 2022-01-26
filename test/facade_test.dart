@@ -36,19 +36,4 @@ void main() {
     final facade = Facade(factory);
     expect(facade.handle(), 'Foo|Bar|Baz');
   });
-
-  test('SubsystemFoo returns "Foo"', () {
-    final foo = SubsystemFoo();
-    expect(foo.handle(), 'Foo');
-  });
-
-  test('SubsystemBar returns "Bar"', () {
-    final bar = SubsystemBar();
-    expect(bar.handle(), 'Bar');
-  });
-
-  test('SubsystemBaz returns "Baz"', () {
-    final baz = SubsystemBaz();
-    expect(baz.handle(), 'Baz');
-  });
 }
