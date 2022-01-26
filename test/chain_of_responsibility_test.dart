@@ -11,29 +11,29 @@ void main() {
 
   setUp(() {
     handlerMock = MockAbstractHandler();
-    when(handlerMock.handleRequest(Request.foo)).thenReturn('FooMock');
-    when(handlerMock.handleRequest(Request.bar)).thenReturn('BarMock');
-    when(handlerMock.handleRequest(Request.baz)).thenReturn('BazMock');
+    when(handlerMock.handleRequest(Request.A)).thenReturn('MockA');
+    when(handlerMock.handleRequest(Request.B)).thenReturn('MockB');
+    when(handlerMock.handleRequest(Request.C)).thenReturn('MockC');
   });
 
-  test('Foo handler returns corresponding name', () {
-    final handler = Foo(handlerMock);
-    expect(handler.handleRequest(Request.foo), 'Foo');
-    expect(handler.handleRequest(Request.bar), 'BarMock');
-    expect(handler.handleRequest(Request.baz), 'BazMock');
+  test('HandlerA returns corresponding name', () {
+    final handler = HandlerA(handlerMock);
+    expect(handler.handleRequest(Request.A), handler.toString());
+    expect(handler.handleRequest(Request.B), 'MockB');
+    expect(handler.handleRequest(Request.C), 'MockC');
   });
 
-  test('Bar handler returns corresponding name', () {
-    final handler = Bar(handlerMock);
-    expect(handler.handleRequest(Request.foo), 'FooMock');
-    expect(handler.handleRequest(Request.bar), 'Bar');
-    expect(handler.handleRequest(Request.baz), 'BazMock');
+  test('HandlerB returns corresponding name', () {
+    final handler = HandlerB(handlerMock);
+    expect(handler.handleRequest(Request.A), 'MockA');
+    expect(handler.handleRequest(Request.B), handler.toString());
+    expect(handler.handleRequest(Request.C), 'MockC');
   });
 
-  test('Baz handler returns "Baz"', () {
-    final handler = Baz();
-    expect(handler.handleRequest(Request.foo), 'Baz');
-    expect(handler.handleRequest(Request.bar), 'Baz');
-    expect(handler.handleRequest(Request.baz), 'Baz');
+  test('HandlerC returns corresponding name', () {
+    final handler = HandlerC();
+    expect(handler.handleRequest(Request.A), 'Unknown');
+    expect(handler.handleRequest(Request.B), 'Unknown');
+    expect(handler.handleRequest(Request.C), handler.toString());
   });
 }

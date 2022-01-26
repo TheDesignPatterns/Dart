@@ -1,30 +1,31 @@
-enum Request { foo, bar, baz }
+enum Request { A, B, C }
 
 abstract class AbstractHandler {
   String handleRequest(Request request);
 }
 
-class Foo implements AbstractHandler {
+class HandlerA implements AbstractHandler {
   final AbstractHandler _successor;
 
-  Foo(this._successor);
+  HandlerA(this._successor);
 
   @override
   String handleRequest(Request request) =>
-      request == Request.foo ? 'Foo' : _successor.handleRequest(request);
+      request == Request.A ? toString() : _successor.handleRequest(request);
 }
 
-class Bar implements AbstractHandler {
+class HandlerB implements AbstractHandler {
   final AbstractHandler _successor;
 
-  Bar(this._successor);
+  HandlerB(this._successor);
 
   @override
   String handleRequest(Request request) =>
-      request == Request.bar ? 'Bar' : _successor.handleRequest(request);
+      request == Request.B ? toString() : _successor.handleRequest(request);
 }
 
-class Baz implements AbstractHandler {
+class HandlerC implements AbstractHandler {
   @override
-  String handleRequest(Request request) => 'Baz';
+  String handleRequest(Request request) =>
+      request == Request.C ? toString() : 'Unknown';
 }
