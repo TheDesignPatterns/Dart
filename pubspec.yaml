@@ -1,5 +1,5 @@
 name: dp
-description: Design Patterns implemented in Dart
+description: Design Patterns implemented in Dart using TDD technique
 version: 1.0.0
 
 environment:
