@@ -12,8 +12,6 @@ void main() {
   setUp(() {
     subjectMock = MockAbstractSubject();
     when(subjectMock.handle(Request.foo)).thenReturn(Status.handled);
-    when(subjectMock.handle(Request.bar)).thenReturn(Status.notSupported);
-    when(subjectMock.handle(Request.baz)).thenReturn(Status.notSupported);
   });
 
   test("RealSubject handles all requests", () {
