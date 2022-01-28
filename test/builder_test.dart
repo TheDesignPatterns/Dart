@@ -14,7 +14,7 @@ void main() {
     when(builderMock.getResult()).thenReturn('foo');
   });
 
-  test('Director constructs object by using Builder interface in proper order', () {
+  test('Director constructs object by calling builder methods in proper order', () {
     final director = Director(builderMock);
     expect(director.construct(), 'foo');
     verifyInOrder([
