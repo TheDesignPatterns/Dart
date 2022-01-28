@@ -7,24 +7,22 @@ import 'proxy_test.mocks.dart';
 
 @GenerateMocks([AbstractSubject])
 void main() {
-  late AbstractSubject subjectMock;
+  late AbstractSubject fooMock;
 
   setUp(() {
-    subjectMock = MockAbstractSubject();
-    when(subjectMock.handle(Request.foo)).thenReturn(Status.handled);
+    fooMock = MockAbstractSubject();
+    when(fooMock.handle(Request.bar)).thenReturn(Status.handled);
   });
 
-  test("RealSubject handles all requests", () {
-    final subject = RealSubject();
-    expect(subject.handle(Request.foo), Status.handled);
-    expect(subject.handle(Request.bar), Status.handled);
-    expect(subject.handle(Request.baz), Status.handled);
+  test("Foo handles all requests", () {
+    final foo = Foo();
+    expect(foo.handle(Request.bar), Status.handled);
+    expect(foo.handle(Request.baz), Status.handled);
   });
 
-  test("Proxy handles only supported requests", () {
-    final proxy = Proxy(subjectMock, notSupported: [Request.bar, Request.baz]);
-    expect(proxy.handle(Request.foo), Status.handled);
-    expect(proxy.handle(Request.bar), Status.notSupported);
-    expect(proxy.handle(Request.baz), Status.notSupported);
+  test("Proxy Foo rejects Request.baz", () {
+    final proxyFoo = Proxy(fooMock, forRejecting: [Request.baz]);
+    expect(proxyFoo.handle(Request.bar), Status.handled);
+    expect(proxyFoo.handle(Request.baz), Status.rejected);
   });
 }
