@@ -1,4 +1,4 @@
-/// Decorates given element as shown in the example below
+/// Decorates given component as shown in the example below
 ///
 /// ```dart
 /// void main() {
@@ -22,11 +22,11 @@ class Foo implements AbstractComponent<String> {
 }
 
 class Decorator implements AbstractComponent<String> {
-  final AbstractComponent _element;
+  final AbstractComponent _component;
   final String _name;
 
-  const Decorator(this._element, this._name);
+  const Decorator(this._component, this._name);
 
   @override
-  String operation() => _element.operation() + _name;
+  String operation() => _component.operation() + _name;
 }

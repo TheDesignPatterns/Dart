@@ -5,12 +5,7 @@ void main() {
   var fooBar = Decorator(foo, 'Bar');
   var fooBarBaz = Decorator(fooBar, 'Baz');
 
-  // Prints "Foo".
-  print(foo.operation());
-
-  // Prints "FooBar".
-  print(fooBar.operation());
-
-  // Prints "FooBarBaz".
-  print(fooBarBaz.operation());
+  print(foo.operation()); // Prints "Foo".
+  print(fooBar.operation()); // Prints "FooBar".
+  print(fooBarBaz.operation()); // Prints "FooBarBaz".
 }
