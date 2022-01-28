@@ -2,14 +2,14 @@ abstract class AbstractComponent {
   String operation();
 }
 
-class Composite implements AbstractComponent {
+class Foo implements AbstractComponent {
   final List<AbstractComponent> _components;
 
-  Composite(this._components);
+  Foo(this._components);
 
   @override
   String operation() {
-    var result = 'Composite([';
+    var result = 'Foo([';
     for (var i = 0; i < _components.length - 1; i++) {
       result += '${_components[i].operation()}, ';
     }
