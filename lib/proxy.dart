@@ -1,3 +1,16 @@
+/// ```dart
+/// var realSubject = RealSubject();
+/// var proxy = Proxy(realSubject, notSupported: [Request.bar, Request.baz]);
+///
+/// print(realSubject.handle(Request.foo)); // Prints "Status.handled"
+/// print(realSubject.handle(Request.bar)); // Prints "Status.handled"
+/// print(realSubject.handle(Request.baz)); // Prints "Status.handled"
+///
+/// print(proxy.handle(Request.foo)); // Prints "Status.handled"
+/// print(proxy.handle(Request.bar)); // Prints "Status.notSupported"
+/// print(proxy.handle(Request.baz)); // Prints "Status.notSupported"
+/// ```
+
 enum Request { foo, bar, baz }
 enum Status { handled, notSupported }
 
