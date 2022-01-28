@@ -11,29 +11,59 @@ void main() {
 
   setUp(() {
     handlerMock = MockAbstractHandler();
-    when(handlerMock.handleRequest(Request.A)).thenReturn('MockA');
-    when(handlerMock.handleRequest(Request.B)).thenReturn('MockB');
-    when(handlerMock.handleRequest(Request.C)).thenReturn('MockC');
+    for (var request in [Request.A, Request.B, Request.C]) {
+      when(handlerMock.handleRequest(request)).thenReturn('resultFromMock');
+    }
   });
 
-  test('HandlerA returns corresponding name', () {
-    final handler = HandlerA(handlerMock);
-    expect(handler.handleRequest(Request.A), handler.toString());
-    expect(handler.handleRequest(Request.B), 'MockB');
-    expect(handler.handleRequest(Request.C), 'MockC');
+  group('HandlerA', () {
+    test('handles Request.A', () {
+      final handler = HandlerA(handlerMock);
+      expect(handler.handleRequest(Request.A), handler.toString());
+    });
+
+    test('delegates Request.B to successor to get result', () {
+      final handler = HandlerA(handlerMock);
+      expect(handler.handleRequest(Request.B), 'resultFromMock');
+    });
+
+    test('delegates Request.C to successor to get result', () {
+      final handler = HandlerA(handlerMock);
+      expect(handler.handleRequest(Request.C), 'resultFromMock');
+    });
   });
 
-  test('HandlerB returns corresponding name', () {
-    final handler = HandlerB(handlerMock);
-    expect(handler.handleRequest(Request.A), 'MockA');
-    expect(handler.handleRequest(Request.B), handler.toString());
-    expect(handler.handleRequest(Request.C), 'MockC');
+  group('HandlerB', () {
+    test('delegates Request.A to successor to get result', () {
+      final handler = HandlerB(handlerMock);
+      expect(handler.handleRequest(Request.A), 'resultFromMock');
+    });
+
+    test('handles Request.B', () {
+      final handler = HandlerB(handlerMock);
+      expect(handler.handleRequest(Request.B), handler.toString());
+    });
+
+    test('delegates Request.C to successor to get result', () {
+      final handler = HandlerB(handlerMock);
+      expect(handler.handleRequest(Request.C), 'resultFromMock');
+    });
   });
 
-  test('HandlerC returns corresponding name', () {
-    final handler = HandlerC();
-    expect(handler.handleRequest(Request.A), 'Unknown');
-    expect(handler.handleRequest(Request.B), 'Unknown');
-    expect(handler.handleRequest(Request.C), handler.toString());
+  group('HandlerC', () {
+    test('recognizes Request.A as unknown', () {
+      final handler = HandlerC();
+      expect(handler.handleRequest(Request.A), 'Unknown');
+    });
+
+    test('recognizes Request.B as unknown', () {
+      final handler = HandlerC();
+      expect(handler.handleRequest(Request.B), 'Unknown');
+    });
+
+    test('handles Request.C', () {
+      final handler = HandlerC();
+      expect(handler.handleRequest(Request.C), handler.toString());
+    });
   });
 }
