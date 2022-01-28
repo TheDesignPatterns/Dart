@@ -1,3 +1,7 @@
+// Copyright (c) 2022, the Design Patterns project authors.
+// All rights reserved. Use of this source code is governed by a
+// MIT-style license that can be found in the LICENSE file.
+
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
