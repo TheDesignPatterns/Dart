@@ -1,14 +1,12 @@
 /// ```dart
-/// var realSubject = RealSubject();
-/// var proxy = Proxy(realSubject, notSupported: [Request.bar, Request.baz]);
+/// var foo = Foo();
+/// var proxyFoo = Proxy(foo, rejected: [Request.baz]);
 ///
-/// print(realSubject.handle(Request.foo)); // Prints "Status.handled"
-/// print(realSubject.handle(Request.bar)); // Prints "Status.handled"
-/// print(realSubject.handle(Request.baz)); // Prints "Status.handled"
+/// print(foo.handle(Request.bar)); // Prints "Status.handled"
+/// print(foo.handle(Request.baz)); // Prints "Status.handled"
 ///
-/// print(proxy.handle(Request.foo)); // Prints "Status.handled"
-/// print(proxy.handle(Request.bar)); // Prints "Status.notSupported"
-/// print(proxy.handle(Request.baz)); // Prints "Status.notSupported"
+/// print(proxyFoo.handle(Request.bar)); // Prints "Status.handled"
+/// print(proxyFoo.handle(Request.baz)); // Prints "Status.rejected"
 /// ```
 
 enum Request { foo, bar, baz }
