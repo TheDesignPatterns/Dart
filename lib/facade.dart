@@ -1,3 +1,10 @@
+/// ```dart
+/// var facade = Facade(SubsystemFactory());
+///
+/// // Prints "Foo.handle|Bar.handle|Baz.handle";
+/// print(facade.handle());
+/// ```
+
 abstract class AbstractFacade {
   String handle();
 }
@@ -33,4 +40,28 @@ abstract class AbstractSubsystemFactory {
   AbstractSubsystemFoo createFoo();
   AbstractSubsystemBar createBar();
   AbstractSubsystemBaz createBaz();
+}
+
+class SubsystemFactory implements AbstractSubsystemFactory {
+  @override
+  AbstractSubsystemFoo createFoo() => SubsystemFoo();
+  @override
+  AbstractSubsystemBar createBar() => SubsystemBar();
+  @override
+  AbstractSubsystemBaz createBaz() => SubsystemBaz();
+}
+
+class SubsystemFoo implements AbstractSubsystemFoo {
+  @override
+  String handle() => 'Foo.handle';
+}
+
+class SubsystemBar implements AbstractSubsystemBar {
+  @override
+  String handle() => 'Bar.handle';
+}
+
+class SubsystemBaz implements AbstractSubsystemBaz {
+  @override
+  String handle() => 'Baz.handle';
 }
