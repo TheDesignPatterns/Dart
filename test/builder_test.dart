@@ -16,10 +16,10 @@ void main() {
 
   test('Director constructs object by calling builder methods in proper order', () {
     final director = Director(builderMock);
-    expect(director.construct([Token(Type.A, 'xx'), Token(Type.B, 'yy')]), 'foo');
+    expect(director.construct([Token(Type.A, 'xxx'), Token(Type.B, 'yyy')]), 'foo');
     verifyInOrder([
-      builderMock.buildPartA('xx'),
-      builderMock.buildPartB('yy'),
+      builderMock.buildPartA('xxx'),
+      builderMock.buildPartB('yyy'),
       builderMock.getResult()
     ]);
   });
