@@ -1,30 +1,11 @@
 import 'package:dp/builder.dart';
 
 void main() {
-  var foo = Director(FooBuilder()).construct();
+  var tokens = [Token(Type.A, 'xx'), Token(Type.B, 'yy'), Token(Type.A, 'zz')];
 
-  // Prints "Foo parts: [PartA.bar][PartB.bar, PartB.baz]"
-  print(foo);
+  var foo = Director(FooBuilder()).construct(tokens);
+  var bar = Director(BarBuilder()).construct(tokens);
+
+  print(foo); // Prints "[<A>xx</A>, <B>yy</B>, <A>zz</A>]".
+  print(bar); // Prints "A=[xx, zz] B=[yy]".
 }
-
-class FooBuilder implements AbstractBuilder {
-  late final _foo = Foo();
-
-  @override
-  void buildPartA() => _foo.partsA.add(PartA.bar);
-  @override
-  void buildPartB() => _foo.partsB.addAll([PartB.bar, PartB.baz]);
-  @override
-  Foo getResult() => _foo;
-}
-
-class Foo {
-  final partsA = <PartA>[];
-  final partsB = <PartB>[];
-
-  @override
-  String toString() => 'Foo parts: $partsA$partsB';
-}
-
-enum PartA { bar, baz }
-enum PartB { bar, baz }

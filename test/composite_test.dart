@@ -14,12 +14,12 @@ void main() {
     when(barMock.operation()).thenReturn('barMock');
   });
 
-  test('Foo composes structure from given elements', () {
+  test('Foo reflects composition of given components in form of a string', () {
     final foo = Foo([barMock, Foo([barMock, barMock])]);
     expect(foo.operation(), 'Foo([barMock, Foo([barMock, barMock])])');
   });
 
-  test('Bar returns "Bar()"', () {
+  test('Bar just returns "Bar()"', () {
     final bar = Bar();
     expect(bar.operation(), 'Bar()');
   });

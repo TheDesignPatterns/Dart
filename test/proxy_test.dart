@@ -20,7 +20,7 @@ void main() {
     expect(foo.handle(Request.baz), Status.handled);
   });
 
-  test('Foo proxy does not handle requests marked for rejecting', () {
+  test('Foo proxy does not handle requests intended for rejecting', () {
     final fooProxy = Proxy(fooMock, forRejecting: [Request.baz]);
     expect(fooProxy.handle(Request.bar), Status.handled);
     expect(fooProxy.handle(Request.baz), Status.rejected);
