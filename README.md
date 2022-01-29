@@ -1,1 +1,1 @@
-Design Patterns implemented in [Dart](https://dart.dev) using [TDD](https://en.wikipedia.org/wiki/Test-driven_development) technique (thanks to [Mockito](https://pub.dev/packages/mockito)) as well as [KISS](https://en.wikipedia.org/wiki/KISS_principle) approach.
+Design Patterns implemented in [Dart](https://dart.dev) using [TDD](https://en.wikipedia.org/wiki/Test-driven_development) technique as well as [mocking objects](https://en.wikipedia.org/wiki/Mock_object) (thanks to [Mockito](https://pub.dev/packages/mockito)).
