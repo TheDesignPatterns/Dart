@@ -14,20 +14,21 @@ void main() {
     when(fooMock.operation()).thenReturn('Foo');
   });
 
-  group('Decorator extends Foo component', () {
-    test('with "Bar"', () {
+  test('Foo just returns "Foo"', () {
+    final foo = Foo();
+    expect(foo.operation(), 'Foo');
+  });
+
+  group('Foo is decorated with', () {
+    test('"Bar" returning "FooBar"', () {
       final fooBar = Decorator(fooMock, 'Bar');
       expect(fooBar.operation(), 'FooBar');
     });
 
-    test('with "Bar" followed by "Baz"', () {
+    test('"Bar" followed by "Baz returning "FooBarBaz"', () {
       final fooBarBaz = Decorator(Decorator(fooMock, 'Bar'), 'Baz');
       expect(fooBarBaz.operation(), 'FooBarBaz');
     });
   });
 
-  test('Foo returns "Foo"', () {
-    final foo = Foo();
-    expect(foo.operation(), 'Foo');
-  });
 }
