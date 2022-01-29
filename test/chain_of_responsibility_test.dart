@@ -16,56 +16,56 @@ void main() {
   setUp(() {
     handlerMock = MockAbstractHandler();
     for (var request in [Request.A, Request.B, Request.C]) {
-      when(handlerMock.handleRequest(request)).thenReturn('resultFromMock');
+      when(handlerMock.handleRequest(request)).thenReturn('Successor');
     }
   });
 
-  group('HandlerA', () {
-    test('handles Request.A', () {
+  group('Foo', () {
+    test('handles Request.foo', () {
       final handler = HandlerA(handlerMock);
       expect(handler.handleRequest(Request.A), handler.toString());
     });
 
-    test('delegates Request.B to successor to get result', () {
+    test('delegates Request.bar to successor', () {
       final handler = HandlerA(handlerMock);
-      expect(handler.handleRequest(Request.B), 'resultFromMock');
+      expect(handler.handleRequest(Request.B), 'Successor');
     });
 
-    test('delegates Request.C to successor to get result', () {
+    test('delegates Request.baz to successor', () {
       final handler = HandlerA(handlerMock);
-      expect(handler.handleRequest(Request.C), 'resultFromMock');
+      expect(handler.handleRequest(Request.C), 'Successor');
     });
   });
 
-  group('HandlerB', () {
-    test('delegates Request.A to successor to get result', () {
+  group('Bar', () {
+    test('delegates Request.A to successor', () {
       final handler = HandlerB(handlerMock);
-      expect(handler.handleRequest(Request.A), 'resultFromMock');
+      expect(handler.handleRequest(Request.A), 'Successor');
     });
 
-    test('handles Request.B', () {
+    test('handles Request.bar', () {
       final handler = HandlerB(handlerMock);
       expect(handler.handleRequest(Request.B), handler.toString());
     });
 
-    test('delegates Request.C to successor to get result', () {
+    test('delegates Request.baz to successor', () {
       final handler = HandlerB(handlerMock);
-      expect(handler.handleRequest(Request.C), 'resultFromMock');
+      expect(handler.handleRequest(Request.C), 'Successor');
     });
   });
 
-  group('HandlerC', () {
-    test('recognizes Request.A as unknown', () {
+  group('Baz', () {
+    test('marks Request.foo as unknown', () {
       final handler = HandlerC();
       expect(handler.handleRequest(Request.A), 'Unknown');
     });
 
-    test('recognizes Request.B as unknown', () {
+    test('marks Request.bar as unknown', () {
       final handler = HandlerC();
       expect(handler.handleRequest(Request.B), 'Unknown');
     });
 
-    test('handles Request.C', () {
+    test('handles Request.baz', () {
       final handler = HandlerC();
       expect(handler.handleRequest(Request.C), handler.toString());
     });
