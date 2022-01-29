@@ -17,8 +17,10 @@ while(my $line = <STDIN>) {
 
   if ($start) {
     last if $line =~ /^}/;
-    $line=~ s/^\s+// unless $line =~ /^$/;
-    push @lines, "$comment$line";
+    $line =~ s/^\s+// unless $line =~ /^$/;
+    $line = "$comment$line";
+    $line =~ s/\/\s$/\//; # removes trailing space
+    push @lines, $line;
   }
 }
 
