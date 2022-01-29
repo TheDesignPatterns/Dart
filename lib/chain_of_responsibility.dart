@@ -1,31 +1,39 @@
-enum Request { A, B, C }
+/// ```dart
+/// var chain = Foo(Bar(Baz()));
+///
+/// print(chain.handleRequest(Request.foo)); // Prints "Foo handled".
+/// print(chain.handleRequest(Request.bar)); // Prints "Bar handled".
+/// print(chain.handleRequest(Request.baz)); // Prints "Baz handled".
+/// ```
+
+enum Request { foo, bar, baz }
 
 abstract class AbstractHandler {
   String handleRequest(Request request);
 }
 
-class HandlerA implements AbstractHandler {
+class Foo implements AbstractHandler {
   final AbstractHandler _successor;
 
-  HandlerA(this._successor);
+  Foo(this._successor);
 
   @override
   String handleRequest(Request request) =>
-      request == Request.A ? toString() : _successor.handleRequest(request);
+      request == Request.foo ? 'Foo handled' : _successor.handleRequest(request);
 }
 
-class HandlerB implements AbstractHandler {
+class Bar implements AbstractHandler {
   final AbstractHandler _successor;
 
-  HandlerB(this._successor);
+  Bar(this._successor);
 
   @override
   String handleRequest(Request request) =>
-      request == Request.B ? toString() : _successor.handleRequest(request);
+      request == Request.bar ? 'Bar handled' : _successor.handleRequest(request);
 }
 
-class HandlerC implements AbstractHandler {
+class Baz implements AbstractHandler {
   @override
   String handleRequest(Request request) =>
-      request == Request.C ? toString() : 'Unknown';
+      request == Request.baz ? 'Baz handled' : 'Unknown';
 }
