@@ -4,10 +4,10 @@ use strict;
 use warnings;
 
 my @lines = ();
-my $comment = "/// ";
+my $comment = "///";
 my $start = 0;
 
-push @lines, "$comment```dart\n";
+push @lines, "$comment ```dart\n";
 
 while(my $line = <STDIN>) {
   if ($line =~ /^void main/) {
@@ -17,13 +17,15 @@ while(my $line = <STDIN>) {
 
   if ($start) {
     last if $line =~ /^}/;
-    $line =~ s/^\s+// unless $line =~ /^$/;
-    $line = "$comment$line";
-    $line =~ s/\/\s$/\//; # removes trailing space
-    push @lines, $line;
+    if ($line =~ /^$/) {
+      push @lines, "$comment$line";
+    } else {
+      $line =~ s/^\s+//;
+      push @lines, "$comment $line";
+    }
   }
 }
 
-push @lines, "$comment```\n";
+push @lines, "$comment ```\n";
 
 print $_ foreach @lines;
