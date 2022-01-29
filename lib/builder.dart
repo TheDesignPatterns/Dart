@@ -1,3 +1,10 @@
+/// ```dart
+/// var foo = Director(FooBuilder()).construct();
+///
+/// // Prints "Foo parts: [PartA.bar][PartB.bar, PartB.baz]"
+/// print(foo);
+/// ```
+
 abstract class AbstractBuilder<R> {
   void buildPartA();
   void buildPartB();
