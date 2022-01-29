@@ -14,15 +14,15 @@ void main() {
     when(fooMock.handle(Request.bar)).thenReturn(Status.handled);
   });
 
-  test("Foo handles all requests", () {
+  test('Foo handles all requests', () {
     final foo = Foo();
     expect(foo.handle(Request.bar), Status.handled);
     expect(foo.handle(Request.baz), Status.handled);
   });
 
-  test("Proxy Foo rejects Request.baz", () {
-    final proxyFoo = Proxy(fooMock, forRejecting: [Request.baz]);
-    expect(proxyFoo.handle(Request.bar), Status.handled);
-    expect(proxyFoo.handle(Request.baz), Status.rejected);
+  test('Foo proxy does not handle requests marked for rejecting', () {
+    final fooProxy = Proxy(fooMock, forRejecting: [Request.baz]);
+    expect(fooProxy.handle(Request.bar), Status.handled);
+    expect(fooProxy.handle(Request.baz), Status.rejected);
   });
 }
