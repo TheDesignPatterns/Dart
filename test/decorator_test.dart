@@ -25,7 +25,7 @@ void main() {
       expect(fooBar.operation(), 'FooBar');
     });
 
-    test('"Bar" followed by "Baz returning "FooBarBaz"', () {
+    test('"Bar" followed by "Baz" returning "FooBarBaz"', () {
       final fooBarBaz = Decorator(Decorator(fooMock, 'Bar'), 'Baz');
       expect(fooBarBaz.operation(), 'FooBarBaz');
     });
