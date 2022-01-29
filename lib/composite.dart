@@ -1,8 +1,7 @@
 /// ```dart
-/// var composite = Foo([Bar(), Foo([Bar(), Bar()]), Bar()]);
+/// var composite = Foo([Bar(), Foo([Bar(), Bar()])]);
 ///
-/// // Prints "Foo([Bar(), Foo([Bar(), Bar()]), Bar()])".
-/// print(composite.operation());
+/// print(composite.operation()); // Prints "Foo([Bar(), Foo([Bar(), Bar()])])".
 /// ```
 
 abstract class AbstractComponent {
