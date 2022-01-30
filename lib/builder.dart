@@ -23,6 +23,30 @@ abstract class AbstractBuilder<Product> {
   Product getResult();
 }
 
+class FooBuilder implements AbstractBuilder<Foo> {
+  late final _product = Foo();
+
+  @override
+  void buildPartA(String value) => _product.values.add('<A>$value</A>');
+  @override
+  void buildPartB(String value) => _product.values.add('<B>$value</B>');
+
+  @override
+  Foo getResult() => _product;
+}
+
+class BarBuilder implements AbstractBuilder<Bar> {
+  late final _product = Bar();
+
+  @override
+  void buildPartA(String value) => _product.valuesA.add(value);
+  @override
+  void buildPartB(String value) => _product.valuesB.add(value);
+
+  @override
+  Bar getResult() => _product;
+}
+
 class Director<Product> {
   final AbstractBuilder _builder;
 
@@ -40,35 +64,11 @@ class Director<Product> {
   }
 }
 
-class FooBuilder implements AbstractBuilder<Foo> {
-  late final _product = Foo();
-
-  @override
-  void buildPartA(String value) => _product.values.add('<A>$value</A>');
-  @override
-  void buildPartB(String value) => _product.values.add('<B>$value</B>');
-
-  @override
-  Foo getResult() => _product;
-}
-
 class Foo {
   final values = <String>[];
 
   @override
   String toString() => '$values';
-}
-
-class BarBuilder implements AbstractBuilder<Bar> {
-  late final _product = Bar();
-
-  @override
-  void buildPartA(String value) => _product.valuesA.add(value);
-  @override
-  void buildPartB(String value) => _product.valuesB.add(value);
-
-  @override
-  Bar getResult() => _product;
 }
 
 class Bar {
