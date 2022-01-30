@@ -7,17 +7,17 @@
 /// ```
 
 abstract class AbstractPrototype {
-	AbstractPrototype clone();
+  AbstractPrototype clone();
 }
 
 class Prototype implements AbstractPrototype {
-	final String _name;
+  final String _name;
 
-	Prototype(this._name);
-	Prototype.from(Prototype p) : _name = p._name + "Clone";
+  Prototype(this._name);
+  Prototype.from(Prototype p) : _name = p._name + "Clone";
 
-	@override
-	AbstractPrototype clone() => Prototype.from(this);
+  @override
+  AbstractPrototype clone() => Prototype.from(this);
 
   @override
   String toString() => _name;
