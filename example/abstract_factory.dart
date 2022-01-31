@@ -6,9 +6,9 @@ void main() {
   var bars = [for (var f in factories) f.createBar()];
 
   for (var foo in foos) {
-    print(foo.operation()); // Prints: "Foo1.operation" "Foo2.opeartion".
+    print(foo.operation()); // Prints: "Foo1.operation" "Foo2.operation".
   }
   for (var bar in bars) {
-    print(bar.operation()); // Prints: "Foo1.operation" "Foo2.opeartion".
+    print(bar.operation()); // Prints: "Bar1.operation" "Bar2.operation".
   }
 }
