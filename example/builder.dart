@@ -1,11 +1,11 @@
 import 'package:dp/builder.dart';
 
 void main() {
-  var tokens = [Token(Type.A, 'xxx'), Token(Type.B, 'yyy'), Token(Type.A, 'zzz')];
+  var tokens = [Token(Type.A, 'xx'), Token(Type.B, 'yy'), Token(Type.A, 'zz')];
 
   var foo = Director(FooBuilder()).construct(tokens);
   var bar = Director(BarBuilder()).construct(tokens);
 
-  print(foo); // Prints "[<A>xxx</A>, <B>yyy</B>, <A>zzz</A>]".
-  print(bar); // Prints "A=[xxx, zzz] B=[yyy]".
+  print(foo); // Prints "Foo is made of [<A>xx</A>, <B>yy</B>, <A>zz</A>]".
+  print(bar); // Prints "Bar is made of A=[xx, zz], B=[yy]".
 }

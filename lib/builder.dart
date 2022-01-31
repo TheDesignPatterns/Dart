@@ -4,8 +4,8 @@
 /// var foo = Director(FooBuilder()).construct(tokens);
 /// var bar = Director(BarBuilder()).construct(tokens);
 ///
-/// print(foo); // Prints "[<A>xx</A>, <B>yy</B>, <A>zz</A>]".
-/// print(bar); // Prints "A=[xx, zz] B=[yy]".
+/// print(foo); // Prints "Foo is made of [<A>xx</A>, <B>yy</B>, <A>zz</A>]".
+/// print(bar); // Prints "Bar is made of A=[xx, zz] B=[yy]".
 /// ```
 
 enum Type { A, B }
@@ -68,7 +68,7 @@ class Foo {
   final values = <String>[];
 
   @override
-  String toString() => '$values';
+  String toString() => 'Foo is made of $values';
 }
 
 class Bar {
@@ -76,5 +76,5 @@ class Bar {
   final valuesB = <String>[];
 
   @override
-  String toString() => 'A=$valuesA, B=$valuesB';
+  String toString() => 'Bar is made of A=$valuesA, B=$valuesB';
 }
