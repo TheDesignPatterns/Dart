@@ -18,9 +18,9 @@ while(my $line = <STDIN>) {
   if ($start) {
     last if $line =~ /^}/;
     if ($line =~ /^$/) {
-      push @lines, "$comment$line";
+      push @lines, "$comment\n";
     } else {
-      $line =~ s/^\s+//;
+      $line =~ s/^\s{2}//;
       push @lines, "$comment $line";
     }
   }
