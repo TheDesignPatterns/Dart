@@ -1,46 +1,46 @@
 abstract class AbstractFactory {
-  AbstractProductA createProductA();
-  AbstractProductB createProductB();
+  AbstractFoo createFoo();
+  AbstractBar createBar();
 }
 
 class Factory1 implements AbstractFactory {
   @override
-  AbstractProductA createProductA() => ProductA1();
+  AbstractFoo createFoo() => Foo1();
   @override
-  AbstractProductB createProductB() => ProductB1();
+  AbstractBar createBar() => Bar1();
 }
 
 class Factory2 implements AbstractFactory {
   @override
-  AbstractProductA createProductA() => ProductA2();
+  AbstractFoo createFoo() => Foo2();
   @override
-  AbstractProductB createProductB() => ProductB2();
+  AbstractBar createBar() => Bar2();
 }
 
-abstract class AbstractProductA {
-  void operation();
+abstract class AbstractFoo {
+  String operation();
 }
 
-class ProductA1 implements AbstractProductA {
+class Foo1 implements AbstractFoo {
   @override
-  void operation() => print(this);
+  String operation() => 'Foo1.operation';
 }
 
-class ProductA2 implements AbstractProductA {
+class Foo2 implements AbstractFoo {
   @override
-  void operation() => print(this);
+  String operation() => 'Foo2.operation';
 }
 
-abstract class AbstractProductB {
-  void operation();
+abstract class AbstractBar {
+  String operation();
 }
 
-class ProductB1 implements AbstractProductB {
+class Bar1 implements AbstractBar {
   @override
-  void operation() => print(this);
+  String operation() => 'Bar1.operation';
 }
 
-class ProductB2 implements AbstractProductB {
+class Bar2 implements AbstractBar {
   @override
-  void operation() => print(this);
+  String operation() => 'Bar2.operation';
 }
