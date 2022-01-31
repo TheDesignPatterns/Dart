@@ -1,13 +1,10 @@
 /// ```dart
 /// var receiver = Receiver();
-/// var commands = Commands(
-///     'Execute ',
-///     [Foo(receiver), BarBaz(receiver)],
-///     ' not knowing the Receiver from inside Commands.'
-/// );
 ///
-/// // Prints "Execute Foo action, Bar action along with Baz action not knowing the Receiver from inside Commands."
-/// print(commands.execute());
+/// // Commands class (aka Invoker) itself knows nothing about the Receiver.
+/// var commands = Commands([Foo(receiver), BarBaz(receiver)]);
+///
+/// print(commands.execute()); // Prints "Receiver.foo, Receiver.bar, Receiver.baz".
 /// ```
 
 abstract class AbstractCommand {
@@ -15,19 +12,17 @@ abstract class AbstractCommand {
 }
 
 class Commands implements AbstractCommand {
-  final String _prefix;
   final List<AbstractCommand> _commands;
-  final String _suffix;
 
-  Commands(this._prefix, this._commands, this._suffix);
+  Commands(this._commands);
 
   @override
   String execute() {
-    var result = '$_prefix';
+    var result = '';
     for (var i = 0; i < _commands.length - 1; i++) {
       result += '${_commands[i].execute()}, ';
     }
-    return '$result${_commands.last.execute()}$_suffix';
+    return '$result${_commands.last.execute()}';
   }
 }
 
@@ -46,11 +41,11 @@ class BarBaz implements AbstractCommand {
   BarBaz(this._receiver);
 
   @override
-  String execute() => '${_receiver.bar()} along with ${_receiver.baz()}';
+  String execute() => '${_receiver.bar()}, ${_receiver.baz()}';
 }
 
 class Receiver {
-  String foo() => 'Foo action';
-  String bar() => 'Bar action';
-  String baz() => 'Baz action';
+  String foo() => 'Receiver.foo';
+  String bar() => 'Receiver.bar';
+  String baz() => 'Receiver.baz';
 }
