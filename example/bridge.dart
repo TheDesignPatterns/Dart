@@ -4,9 +4,6 @@ void main() {
   var fooBar = Foo(' is implemented by ', Bar());
   var fooBaz = Foo(' |=======|=======| ', Baz());
 
-  // Prints "Foo is implemented by bar".
-  print(fooBar.operation());
-
-  // Prints "Foo |=======|=======| BAZ".
-  print(fooBaz.operation());
+  print(fooBar.operation()); // Prints "Foo is implemented by bar".
+  print(fooBaz.operation()); // Prints "Foo |=======|=======| BAZ".
 }
