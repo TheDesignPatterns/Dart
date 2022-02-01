@@ -12,12 +12,15 @@
 enum State { unknown, handled, notified  }
 
 abstract class AbstractMediator {
-  void mediate(Colleague colleague);
   void add(Colleague colleague);
+  void mediate(Colleague colleague);
 }
 
 class Mediator implements AbstractMediator {
   final _colleagues = <Colleague>{};
+
+  @override
+  void add(Colleague colleague) => _colleagues.add(colleague);
 
   @override
   void mediate(Colleague colleague) {
@@ -25,9 +28,6 @@ class Mediator implements AbstractMediator {
       other.notify();
     }
   }
-
-  @override
-  void add(Colleague colleague) => _colleagues.add(colleague);
 
   Set _othersThan(Colleague colleague) =>
       _colleagues.where((item) => item != colleague).toSet();
