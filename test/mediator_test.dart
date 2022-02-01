@@ -5,22 +5,44 @@ import 'package:test/test.dart';
 import 'package:dp/mediator.dart';
 import 'mediator_test.mocks.dart';
 
-@GenerateMocks([AbstractMediator])
+@GenerateMocks([AbstractMediator, AbstractColleague])
 void main() {
   late AbstractMediator mediatorMock;
+  late AbstractColleague colleagueMock;
+  late AbstractColleague otherColleagueMock;
 
   setUp(() {
     mediatorMock = MockAbstractMediator();
+    colleagueMock = MockAbstractColleague();
+    otherColleagueMock = MockAbstractColleague();
   });
 
-  test('Mediator knows the colleague', () {
-    final colleague = Colleague(mediatorMock);
-    verify(mediatorMock.add(colleague));
+  group('Colleague', () {
+    test('adds itself to mediator list of colleagues when creating', () {
+      final colleague = Colleague(mediatorMock);
+      verify(mediatorMock.add(colleague));
+    });
+
+    test('triggers mediation when handling request', () {
+      final colleague = Colleague(mediatorMock);
+      colleague.handleRequest();
+      verify(mediatorMock.mediate(colleague));
+    });
   });
 
-  test('Colleague takes part in mediation', () {
-    final colleague = Colleague(mediatorMock);
-    colleague.handleRequest();
-    verify(mediatorMock.mediate(colleague));
+  group('Mediator', () {
+    test('never notifies the colleague that has triggered mediation', () {
+      final mediator = Mediator();
+      mediator.add(colleagueMock);
+      mediator.mediate(colleagueMock);
+      verifyNever(colleagueMock.notify());
+    });
+
+    test('notifies other colleagues when mediating', () {
+      final mediator = Mediator();
+      mediator.add(otherColleagueMock);
+      mediator.mediate(colleagueMock);
+      verify(otherColleagueMock.notify());
+    });
   });
 }

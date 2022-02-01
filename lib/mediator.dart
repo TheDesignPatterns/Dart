@@ -12,28 +12,33 @@
 enum State { unknown, handled, notified  }
 
 abstract class AbstractMediator {
-  void add(Colleague colleague);
-  void mediate(Colleague colleague);
+  void add(AbstractColleague colleague);
+  void mediate(AbstractColleague colleague);
 }
 
 class Mediator implements AbstractMediator {
-  final _colleagues = <Colleague>{};
+  final _colleagues = <AbstractColleague>{};
 
   @override
-  void add(Colleague colleague) => _colleagues.add(colleague);
+  void add(AbstractColleague colleague) => _colleagues.add(colleague);
 
   @override
-  void mediate(Colleague colleague) {
+  void mediate(AbstractColleague colleague) {
     for (var other in _othersThan(colleague)) {
       other.notify();
     }
   }
 
-  Set _othersThan(Colleague colleague) =>
+  Set _othersThan(AbstractColleague colleague) =>
       _colleagues.where((item) => item != colleague).toSet();
 }
 
-class Colleague {
+abstract class AbstractColleague {
+  void handleRequest();
+  void notify();
+}
+
+class Colleague implements AbstractColleague {
   final AbstractMediator _mediator;
   State _state = State.unknown;
 
@@ -41,11 +46,13 @@ class Colleague {
     _mediator.add(this);
   }
 
+  @override
   void handleRequest() {
     _state = State.handled;
     _mediator.mediate(this);
   }
 
+  @override
   void notify() => _state = State.notified;
 
   @override
