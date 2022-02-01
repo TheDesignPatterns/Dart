@@ -5,12 +5,12 @@ import 'package:test/test.dart';
 import 'package:dp/bridge.dart';
 import 'bridge_test.mocks.dart';
 
-@GenerateMocks([AbstractImplementor])
+@GenerateMocks([AbstractImplementer])
 void main() {
-  late AbstractImplementor barMock;
+  late AbstractImplementer barMock;
 
   setUp(() {
-      barMock = MockAbstractImplementor();
+      barMock = MockAbstractImplementer();
       when(barMock.operationImp()).thenReturn('Bar');
   });
 

@@ -15,24 +15,24 @@ abstract class Abstraction {
 
 class Foo implements Abstraction {
   final String _name;
-  final AbstractImplementor _implementor;
+  final AbstractImplementer _implementer;
 
-  Foo(this._name, this._implementor);
+  Foo(this._name, this._implementer);
 
   @override
-  String operation() => 'Foo$_name${_implementor.operationImp()}';
+  String operation() => 'Foo$_name${_implementer.operationImp()}';
 }
 
-abstract class AbstractImplementor {
+abstract class AbstractImplementer {
   String operationImp();
 }
 
-class Bar implements AbstractImplementor {
+class Bar implements AbstractImplementer {
   @override
   String operationImp() => 'bar';
 }
 
-class Baz implements AbstractImplementor {
+class Baz implements AbstractImplementer {
   @override
   String operationImp() => 'baz'.toUpperCase();
 }
