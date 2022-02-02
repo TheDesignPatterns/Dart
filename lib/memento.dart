@@ -20,7 +20,7 @@ class Memento {
 
   Memento(this._name);
 
-  String get state => _name;
+  String get name => _name;
 }
 
 class Originator {
@@ -29,12 +29,12 @@ class Originator {
   Originator(this._name);
 
   Memento createMemento() => Memento(_name);
-  void setMemento(Memento memento) => _name = memento.state;
+  void setMemento(Memento memento) => _name = memento.name;
 
-  set moveString(String state) => _name = state;
+  set rename(String name) => _name = name;
 
   @override
-  String toString() => '$_name';
+  String toString() => _name;
 }
 
 class Caretaker {
@@ -43,9 +43,9 @@ class Caretaker {
 
   Caretaker(this._originator);
 
-  void rename(String state) {
+  void rename(String name) {
     _mementos.add(_originator.createMemento());
-    _originator.moveString = state;
+    _originator.rename = name;
   }
 
   void undo() => _originator.setMemento(_mementos.removeLast());
