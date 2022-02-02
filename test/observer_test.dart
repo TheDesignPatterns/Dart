@@ -15,7 +15,7 @@ void main() {
     observerMock = MockAbstractObserver();
   });
 
-  test('Subject notifies observers on change', () {
+  test('Subject updates its observers on change', () {
     final subject = Subject();
     subject.attach(observerMock);
     subject.change();
