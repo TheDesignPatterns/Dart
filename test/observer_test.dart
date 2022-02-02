@@ -15,7 +15,7 @@ void main() {
     observerMock = MockAbstractObserver();
   });
 
-  test('Subject notifies observers when changing', () {
+  test('Subject notifies observers on change', () {
     final subject = Subject();
     subject.attach(observerMock);
     subject.change();
@@ -33,7 +33,7 @@ void main() {
       expect(observer.toString(), State.initial.toString());
     });
 
-    test('changes its state to notified when updated', () {
+    test('changes its state to notified on update', () {
       final observer = Observer(subjectMock);
       observer.update();
       expect(observer.toString(), State.notified.toString());
