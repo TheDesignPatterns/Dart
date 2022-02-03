@@ -44,12 +44,6 @@ void main() {
   });
 
   group('Context delegates handling request to', () {
-    test('StateFoo by default', () {
-      final context = Context(stateFooMock, stateBarMock);
-      when(stateFooMock.handle(context)).thenReturn('StateFoo.handle');
-      expect(context.request(), 'StateFoo.handle');
-    });
-
     test('StateBar after issuing moveToStateBar', () {
       final context = Context(stateFooMock, stateBarMock);
       context.moveToStateBar();
