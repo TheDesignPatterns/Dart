@@ -17,16 +17,30 @@ void main() {
     contextMock = MockAbstractContext();
   });
 
-  test('StateFoo moves to StateBar when handling', () {
-    final stateFoo = StateFoo();
-    expect(stateFoo.handle(contextMock), 'StateFoo.handle');
-    verify(contextMock.moveToStateBar());
+  group('When handling request, StateFoo', () {
+    test('moves to StateBar', () {
+      final stateFoo = StateFoo();
+      stateFoo.handle(contextMock);
+      verify(contextMock.moveToStateBar());
+    });
+
+    test('returns StateFoo.handle', () {
+      final stateFoo = StateFoo();
+      expect(stateFoo.handle(contextMock), 'StateFoo.handle');
+    });
   });
 
-  test('StateBar moves to StateFoo when handling', () {
-    final stateBar = StateBar();
-    expect(stateBar.handle(contextMock), 'StateBar.handle');
-    verify(contextMock.moveToStateFoo());
+  group('When handling request, StateBar', () {
+    test('moves to StateFoo', () {
+      final stateBar = StateBar();
+      stateBar.handle(contextMock);
+      verify(contextMock.moveToStateFoo());
+    });
+
+    test('returns StateBar.handle', () {
+      final stateBar = StateBar();
+      expect(stateBar.handle(contextMock), 'StateBar.handle');
+    });
   });
 
   group('Context delegates handling request to', () {
@@ -35,12 +49,14 @@ void main() {
       when(stateFooMock.handle(context)).thenReturn('StateFoo.handle');
       expect(context.request(), 'StateFoo.handle');
     });
+
     test('StateBar after issuing moveToStateBar', () {
       final context = Context(stateFooMock, stateBarMock);
       context.moveToStateBar();
       when(stateBarMock.handle(context)).thenReturn('StateBar.handle');
       expect(context.request(), 'StateBar.handle');
     });
+
     test('StateFoo after issuing moveToStateFoo', () {
       final context = Context(stateFooMock, stateFooMock);
       context.moveToStateFoo();
