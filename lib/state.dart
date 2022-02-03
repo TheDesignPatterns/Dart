@@ -8,41 +8,41 @@
 typedef Result = String;
 
 abstract class AbstractState {
-	Result handle(AbstractContext context);
+  Result handle(AbstractContext context);
 }
 
 class StateFoo implements AbstractState {
-	@override
-	Result handle(AbstractContext context) {
-		context.moveToStateBar();
-		return 'StateFoo.handle';
-	}
+  @override
+  Result handle(AbstractContext context) {
+    context.moveToStateBar();
+    return 'StateFoo.handle';
+  }
 }
 
 class StateBar implements AbstractState {
-	@override
-	Result handle(AbstractContext context) {
-		context.moveToStateFoo();
-		return 'StateBar.handle';
-	}
+  @override
+  Result handle(AbstractContext context) {
+    context.moveToStateFoo();
+    return 'StateBar.handle';
+  }
 }
 
 abstract class AbstractContext {
-	void moveToStateFoo();
-	void moveToStateBar();
+  void moveToStateFoo();
+  void moveToStateBar();
 }
 
 class Context implements AbstractContext {
-	final AbstractState _stateFoo;
-	final AbstractState _stateBar;
-	AbstractState _current;
+  final AbstractState _stateFoo;
+  final AbstractState _stateBar;
+  AbstractState _current;
 
-	Context(this._stateFoo, this._stateBar) : _current = _stateFoo;
+  Context(this._stateFoo, this._stateBar) : _current = _stateFoo;
 
-	@override
-	void moveToStateFoo() => _current = _stateFoo;
-	@override
-	void moveToStateBar() => _current = _stateBar;
+  @override
+  void moveToStateFoo() => _current = _stateFoo;
+  @override
+  void moveToStateBar() => _current = _stateBar;
 
-	Result request() => _current.handle(this);
+  Result request() => _current.handle(this);
 }
