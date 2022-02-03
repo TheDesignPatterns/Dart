@@ -17,7 +17,7 @@ class Foo implements Abstraction {
   Foo(this._name, this._implementer);
 
   @override
-  String operation() => 'Foo$_name${_implementer.operationImp()}';
+  String operation() => 'Foo $_name ${_implementer.operationImp()}';
 }
 
 abstract class AbstractImplementer {

@@ -14,9 +14,9 @@ void main() {
       when(barMock.operationImp()).thenReturn('Bar');
   });
 
-  test('Foo returns "Foo|==|Bar"', () {
+  test('Foo returns "Foo |==| Bar"', () {
     final foo = Foo('|==|', barMock);
-    expect(foo.operation(), 'Foo|==|Bar');
+    expect(foo.operation(), 'Foo |==| Bar');
   });
 
   test('Bar returns "bar"', () {
@@ -24,7 +24,7 @@ void main() {
     expect(bar.operationImp(), 'bar');
   });
 
-  test('Baz returns "BAZ"', () {
+  test('Baz returns "baz" in upper case', () {
     final baz = Baz();
     expect(baz.operationImp(), 'BAZ');
   });
