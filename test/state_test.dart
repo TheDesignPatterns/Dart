@@ -29,19 +29,19 @@ void main() {
     verify(contextMock.moveToStateFoo());
   });
 
-  group('Context', () {
-    test('delegates handling request to StateFoo by default', () {
+  group('Context delegates handling request to', () {
+    test('StateFoo by default', () {
       final context = Context(stateFooMock, stateBarMock);
       when(stateFooMock.handle(context)).thenReturn('StateFoo.handle');
       expect(context.request(), 'StateFoo.handle');
     });
-    test('delegates handling request to StateBar after issuing moveToStateBar', () {
+    test('StateBar after issuing moveToStateBar', () {
       final context = Context(stateFooMock, stateBarMock);
       context.moveToStateBar();
       when(stateBarMock.handle(context)).thenReturn('StateBar.handle');
       expect(context.request(), 'StateBar.handle');
     });
-    test('delegates handling request to StateFoo after issuing moveToStateFoo', () {
+    test('StateFoo after issuing moveToStateFoo', () {
       final context = Context(stateFooMock, stateFooMock);
       context.moveToStateFoo();
       when(stateFooMock.handle(context)).thenReturn('StateFoo.handle');
