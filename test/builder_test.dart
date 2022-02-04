@@ -11,16 +11,32 @@ void main() {
 
   setUp(() {
     builderMock = MockAbstractBuilder();
-    when(builderMock.getResult()).thenReturn('foo');
+    when(builderMock.getResult()).thenReturn('product');
   });
 
-  test('Director constructs object by calling builder methods in proper order', () {
+  test('Director constructs a product using Builder interface', () {
     final director = Director(builderMock);
-    expect(director.construct([Token(Type.A, 'xxx'), Token(Type.B, 'yyy')]), 'foo');
+    director.construct([Token(Type.A, 'xx'), Token(Type.B, 'yy')]);
     verifyInOrder([
-      builderMock.buildPartA('xxx'),
-      builderMock.buildPartB('yyy'),
+      builderMock.buildPartA('xx'),
+      builderMock.buildPartB('yy'),
       builderMock.getResult()
     ]);
+  });
+
+  test('FooBuilder builds Foo', () {
+    final builder = FooBuilder();
+    builder.buildPartA('xx');
+    builder.buildPartB('yy');
+    var xx = builder.getResult();
+    expect(xx.toString(), ['<A>xx</A>', '<B>yy</B>'].toString());
+  });
+
+  test('BarBuilder builds Bar', () {
+    final builder = BarBuilder();
+    builder.buildPartA('xx');
+    builder.buildPartB('yy');
+    var yy = builder.getResult();
+    expect(yy.toString(), 'A=[xx], B=[yy]');
   });
 }

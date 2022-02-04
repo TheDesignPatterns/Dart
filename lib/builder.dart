@@ -68,7 +68,7 @@ class Foo {
   final values = <String>[];
 
   @override
-  String toString() => 'Foo is made of $values';
+  String toString() => '$values';
 }
 
 class Bar {
@@ -76,5 +76,5 @@ class Bar {
   final valuesB = <String>[];
 
   @override
-  String toString() => 'Bar is made of A=$valuesA, B=$valuesB';
+  String toString() => 'A=$valuesA, B=$valuesB';
 }
