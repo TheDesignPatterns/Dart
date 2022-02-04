@@ -1,23 +1,23 @@
 /// ```dart
-/// var contextWithFooStrategy = Context(StrategyFoo());
-/// var contextWithBarStrategy = Context(StrategyBar());
+/// var contextWithFooStrategy = Context(FooStrategy());
+/// var contextWithBarStrategy = Context(BarStrategy());
 ///
-/// print(contextWithFooStrategy.operation()); // Prints "StrategyFoo.algorithm".
-/// print(contextWithBarStrategy.operation()); // Prints "StrategyBar.algorithm".
+/// print(contextWithFooStrategy.operation()); // Prints "FooStrategy.algorithm".
+/// print(contextWithBarStrategy.operation()); // Prints "BarStrategy.algorithm".
 /// ```
 
 abstract class AbstractStrategy {
   String algorithm();
 }
 
-class StrategyFoo implements AbstractStrategy {
+class FooStrategy implements AbstractStrategy {
   @override
-  String algorithm() => "StrategyFoo.algorithm";
+  String algorithm() => "FooStrategy.algorithm";
 }
 
-class StrategyBar implements AbstractStrategy {
+class BarStrategy implements AbstractStrategy {
   @override
-  String algorithm() => "StrategyBar.algorithm";
+  String algorithm() => "BarStrategy.algorithm";
 }
 
 class Context {
