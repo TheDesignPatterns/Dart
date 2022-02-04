@@ -28,15 +28,15 @@ void main() {
     final builder = FooBuilder();
     builder.buildPartA('xx');
     builder.buildPartB('yy');
-    var xx = builder.getResult();
-    expect(xx.toString(), ['<A>xx</A>', '<B>yy</B>'].toString());
+    var foo = builder.getResult();
+    expect(foo.toString(), ['<A>xx</A>', '<B>yy</B>'].toString());
   });
 
   test('BarBuilder builds Bar', () {
     final builder = BarBuilder();
     builder.buildPartA('xx');
     builder.buildPartB('yy');
-    var yy = builder.getResult();
-    expect(yy.toString(), 'A=[xx], B=[yy]');
+    var bar = builder.getResult();
+    expect(bar.toString(), 'A=[xx], B=[yy]');
   });
 }
