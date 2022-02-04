@@ -24,7 +24,7 @@ void main() {
     ]);
   });
 
-  test('FooBuilder builds Foo', () {
+  test('FooBuilder builds Foo with specific representation', () {
     final builder = FooBuilder();
     builder.buildPartA('xx');
     builder.buildPartB('yy');
@@ -32,7 +32,7 @@ void main() {
     expect(foo.toString(), ['<A>xx</A>', '<B>yy</B>'].toString());
   });
 
-  test('BarBuilder builds Bar', () {
+  test('BarBuilder builds Bar with specific representation', () {
     final builder = BarBuilder();
     builder.buildPartA('xx');
     builder.buildPartB('yy');
