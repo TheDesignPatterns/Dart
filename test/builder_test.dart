@@ -24,19 +24,35 @@ void main() {
     ]);
   });
 
-  test('FooBuilder builds Foo with specific representation', () {
-    final builder = FooBuilder();
-    builder.buildPartA('xx');
-    builder.buildPartB('yy');
-    var foo = builder.getResult();
-    expect(foo.toString(), ['<A>xx</A>', '<B>yy</B>'].toString());
+  group('FooBuilder builds Foo reflecting value passed to', () {
+    test('buildPartA', () {
+      final builder = FooBuilder();
+      builder.buildPartA('xx');
+      var foo = builder.getResult();
+      expect(foo.values, ['<A>xx</A>']);
+    });
+
+    test('buildPartB', () {
+      final builder = FooBuilder();
+      builder.buildPartB('yy');
+      var foo = builder.getResult();
+      expect(foo.values, ['<B>yy</B>']);
+    });
   });
 
-  test('BarBuilder builds Bar with specific representation', () {
-    final builder = BarBuilder();
-    builder.buildPartA('xx');
-    builder.buildPartB('yy');
-    var bar = builder.getResult();
-    expect(bar.toString(), 'A=[xx], B=[yy]');
+  group('BarBuilder builds Bar reflecting value passed to', () {
+    test('buildPartA', () {
+      final builder = BarBuilder();
+      builder.buildPartA('xx');
+      var bar = builder.getResult();
+      expect(bar.valuesA, ['xx']);
+    });
+
+    test('buildPartB', () {
+      final builder = BarBuilder();
+      builder.buildPartB('yy');
+      var bar = builder.getResult();
+      expect(bar.valuesB, ['yy']);
+    });
   });
 }

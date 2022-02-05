@@ -19,6 +19,7 @@ void main() {
       final foo = Foo();
       expect(foo.handle(Request.bar), Status.handled);
     });
+
     test('Request.baz', () {
       final foo = Foo();
       expect(foo.handle(Request.baz), Status.handled);
@@ -30,6 +31,7 @@ void main() {
       final fooProxy = Proxy(fooMock, forRejecting: [Request.baz]);
       expect(fooProxy.handle(Request.bar), Status.handled);
     });
+
     test('rejects Request.baz', () {
       final fooProxy = Proxy(fooMock, forRejecting: [Request.baz]);
       expect(fooProxy.handle(Request.baz), Status.rejected);
