@@ -30,5 +30,4 @@ void main() {
       expect(fooBarBaz.operation(), 'FooBarBaz');
     });
   });
-
 }
