@@ -8,7 +8,7 @@
 /// }
 ///
 /// print(visitor1); // Prints "visited [Foo, Bar, Bar, Foo]".
-/// print(visitor2); // Prints "visited [Foo, Foo][Bar, Foo]".
+/// print(visitor2); // Prints "visited [Foo, Foo][Bar, Bar]".
 /// ```
 
 abstract class AbstractVisitor {
