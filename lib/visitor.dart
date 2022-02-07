@@ -38,14 +38,10 @@ class Visitor1 implements AbstractVisitor {
   final visited = <String>[];
 
   @override
-  void visitFoo(Foo element) {
-    visited.add(element.operation());
-  }
+  void visitFoo(Foo element) => visited.add(element.operation());
 
   @override
-  void visitBar(Bar element) {
-    visited.add(element.operation());
-  }
+  void visitBar(Bar element) => visited.add(element.operation());
 
   @override
   String toString() => 'visited $visited';
@@ -56,14 +52,10 @@ class Visitor2 implements AbstractVisitor {
   final barVisited = <String>[];
 
   @override
-  void visitFoo(Foo element) {
-    fooVisited.add(element.operation());
-  }
+  void visitFoo(Foo element) => fooVisited.add(element.operation());
 
   @override
-  void visitBar(Bar element) {
-    barVisited.add(element.operation());
-  }
+  void visitBar(Bar element) => barVisited.add(element.operation());
 
   @override
   String toString() => 'visited $fooVisited$barVisited';
