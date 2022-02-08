@@ -14,17 +14,17 @@ void main() {
       when(barMock.operationImp()).thenReturn('Bar');
   });
 
-  test('Foo returns "Foo |==| Bar"', () {
-    final foo = Foo('|==|', barMock);
-    expect(foo.operation(), 'Foo |==| Bar');
+  test('Foo is implemented by Bar', () {
+    final foo = Foo('is implemented by', barMock);
+    expect(foo.operation(), 'Foo is implemented by Bar');
   });
 
-  test('Bar returns "bar"', () {
+  test('Bar just returns "bar"', () {
     final bar = Bar();
     expect(bar.operationImp(), 'bar');
   });
 
-  test('Baz returns "baz" in upper case', () {
+  test('Baz just returns "BAZ"', () {
     final baz = Baz();
     expect(baz.operationImp(), 'BAZ');
   });
