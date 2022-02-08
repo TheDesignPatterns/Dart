@@ -8,16 +8,16 @@
 /// print(fooBarBaz.operation()); // Prints "FooBarBaz".
 /// ```
 
-abstract class AbstractComponent<R> {
-  R operation();
+abstract class AbstractComponent {
+  String operation();
 }
 
-class Foo implements AbstractComponent<String> {
+class Foo implements AbstractComponent {
   @override
   String operation() => 'Foo';
 }
 
-class Decorator implements AbstractComponent<String> {
+class Decorator implements AbstractComponent {
   final AbstractComponent _component;
   final String _name;
 

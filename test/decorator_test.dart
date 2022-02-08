@@ -5,13 +5,13 @@ import 'package:test/test.dart';
 import 'package:dp/decorator.dart';
 import 'decorator_test.mocks.dart';
 
-@GenerateMocks([], customMocks: [MockSpec<AbstractComponent<String>>()])
+@GenerateMocks([AbstractComponent])
 void main() {
-  late AbstractComponent fooMock;
+  late AbstractComponent foo;
 
   setUp(() {
-    fooMock = MockAbstractComponent();
-    when(fooMock.operation()).thenReturn('Foo');
+    foo = MockAbstractComponent();
+    when(foo.operation()).thenReturn('Foo');
   });
 
   test('Foo just returns "Foo"', () {
@@ -21,12 +21,12 @@ void main() {
 
   group('Foo is decorated with', () {
     test('"Bar" returning "FooBar"', () {
-      final fooBar = Decorator(fooMock, 'Bar');
+      final fooBar = Decorator(foo, 'Bar');
       expect(fooBar.operation(), 'FooBar');
     });
 
     test('"Bar" followed by "Baz" returning "FooBarBaz"', () {
-      final fooBarBaz = Decorator(Decorator(fooMock, 'Bar'), 'Baz');
+      final fooBarBaz = Decorator(Decorator(foo, 'Bar'), 'Baz');
       expect(fooBarBaz.operation(), 'FooBarBaz');
     });
   });
