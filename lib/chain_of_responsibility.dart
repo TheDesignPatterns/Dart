@@ -1,3 +1,7 @@
+// Copyright (c) 2022 mehoffer <mehoffer@protonmail.com>
+// All rights reserved. Use of this source code is governed by a
+// MIT-style license that can be found in the LICENSE file.
+
 /// ```dart
 /// var chain = Foo(Bar(Baz()));
 ///
