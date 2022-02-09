@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2022 mehoffer <mehoffer@protonmail.com>
+
 import 'package:test/test.dart';
 import 'package:dp/template_method.dart';
 

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) 2022 mehoffer <mehoffer@protonmail.com>
+
 /// ```dart
 /// var fooBar = Foo('is implemented by', Bar());
 /// var fooBaz = Foo('|=======|=======|', Baz());
