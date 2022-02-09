@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Copyright (C) 2022 mehoffer <mehoffer@protonmail.com>
+// Copyright (c) 2022 mehoffer <mehoffer@protonmail.com>
 
 import 'package:dp/chain_of_responsibility.dart';
 
