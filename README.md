@@ -1,1 +1,1 @@
-Design Patterns examples implemented in Dart using [TDD](https://en.wikipedia.org/wiki/Test-driven_development) along with [mocking objects](https://en.wikipedia.org/wiki/Mock_object) (thanks to [Mockito](https://pub.dev/packages/mockito)).
+Design Patterns examples implemented in Dart using [TDD](https://en.wikipedia.org/wiki/Test-driven_development) technique along with [mocking objects](https://en.wikipedia.org/wiki/Mock_object) (thanks to [Mockito](https://pub.dev/packages/mockito)).
