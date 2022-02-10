@@ -27,6 +27,9 @@ $ dart run example/decorator.dart
 $ git clone https://github.com/TheDesignPatterns/Dart.git
 $ cd Dart
 $ podman run -it -v $PWD:/Dart -w /Dart docker.io/library/dart
+```
+From inside the running container:
+```
 $ dart run build_runner build
 $ dart test
 $ dart run example/decorator.dart
