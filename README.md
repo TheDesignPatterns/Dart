@@ -9,7 +9,7 @@ Design Patterns examples written in [Dart](https://dart.dev) in form of a librar
 * `test/` : design patterns to test (e.g. ```$ dart test test/builder_test.dart```)
 * `tool/`: tools that may be useful when commiting to this repo
 
-Each design pattern has its corresponding file in the directories `example/`, `lib/`, and `test/`.
+Each design pattern has its corresponding file in the directories `example/`, `lib/` and `test/`.
 
 ## Build (assuming Dart env is up and running)
 
@@ -40,6 +40,6 @@ $ dart run example/decorator.dart
 You want to contribute to this project? That's nice! So please just fork it and
 send me a pull request.
 
-## Like it?
+## You like it?
 
 Be the first to star it!
