@@ -19,7 +19,7 @@ $ dart test
 $ dart run example/decorator.dart
 ```
 
-## Build (using official dart image via podman/docker)
+## Build (using official Dart image via podman/docker)
 
 ```
 $ git clone https://github.com/TheDesignPatterns/Dart.git
@@ -35,4 +35,6 @@ $ dart run example/decorator.dart
 You want to contribute to this project? That's nice! So please just fork it and
 send me a pull request.
 
-## Like it? Star it!
+## Like it?
+
+Be the first to start it!
