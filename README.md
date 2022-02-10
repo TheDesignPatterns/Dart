@@ -34,3 +34,5 @@ $ dart run example/decorator.dart
 
 You want to contribute to this project? That's nice! So please just fork it and
 send me a pull request.
+
+## Like it? Star it!
