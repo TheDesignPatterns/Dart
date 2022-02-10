@@ -9,7 +9,7 @@ Design Patterns examples written in [Dart](https://dart.dev) in form of a librar
 * `test/` : design patterns to test (e.g. ```$ dart test test/builder_test.dart```)
 * `tool/`: tools that may be useful when commiting to this repo
 
-Each design pattern has its corresponding file in the directories `example/`, `lib/`, and `test/`.
+Each design pattern (except Abstract Factory) has its corresponding file in the directories `example/`, `lib/`, and `test/`.
 
 ## Build (assuming Dart env is up and running)
 
