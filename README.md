@@ -1,6 +1,6 @@
 # Design Patterns in Dart
 
-Design Patterns examples written in Dart using TDD and mocking objects techniques (thanks to Mockito) as well as KISS principle.
+Design Patterns examples written in Dart using TDD and mocking objects techniques as well as KISS.
 
 ## Layout
 
