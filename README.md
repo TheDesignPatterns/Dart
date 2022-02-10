@@ -37,4 +37,4 @@ send me a pull request.
 
 ## Like it?
 
-Be the first to start it!
+Be the first to star it!
