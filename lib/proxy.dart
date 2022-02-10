@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2022 mehoffer <mehoffer@protonmail.com>
 
+/// Usage example:
+///
 /// ```dart
 /// var foo = Foo();
 /// var fooProxy = Proxy(foo, forRejecting: [Request.baz]);

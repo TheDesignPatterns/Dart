@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2022 mehoffer <mehoffer@protonmail.com>
 
+/// Usage example:
+///
 /// ```dart
 /// var mediator = Mediator();
 /// var colleagues = [Colleague(mediator), Colleague(mediator), Colleague(mediator)];

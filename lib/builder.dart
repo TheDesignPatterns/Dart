@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2022 mehoffer <mehoffer@protonmail.com>
 
+/// Usage example:
+///
 /// ```dart
 /// var tokens = [Token(Type.A, 'xx'), Token(Type.B, 'yy'), Token(Type.A, 'zz')];
 ///

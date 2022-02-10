@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2022 mehoffer <mehoffer@protonmail.com>
 
+/// Usage example:
+///
 /// ```dart
 /// var factories = [Factory1(), Factory2()];
 /// var foos = [for (var f in factories) f.createFoo()];

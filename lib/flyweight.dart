@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2022 mehoffer <mehoffer@protonmail.com>
 
+/// Usage example:
+///
 /// ```dart
 /// var flyweights = c.Foo([Flyweight('Bar'), c.Foo([Flyweight('Bar'), Flyweight('Baz')])]);
 ///

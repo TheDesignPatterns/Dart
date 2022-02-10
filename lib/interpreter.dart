@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2022 mehoffer <mehoffer@protonmail.com>
 
+/// Usage example:
+///
 /// ```dart
 /// var expression = Plus(Minus(Var('foo'), Var('bar')), Var('baz'));
 /// var context = {'foo': 10, 'bar': 20, 'baz': 30};
