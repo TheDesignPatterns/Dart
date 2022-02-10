@@ -7,6 +7,8 @@ my @lines = ();
 my $comment = "///";
 my $start = 0;
 
+push @lines, "$comment Usage example:\n";
+push @lines, "$comment\n";
 push @lines, "$comment ```dart\n";
 
 while(my $line = <STDIN>) {
@@ -27,6 +29,6 @@ while(my $line = <STDIN>) {
   }
 }
 
-push @lines, "$comment ```\n";
+push @lines, "$comment ```\n\n";
 
 print $_ foreach @lines;
