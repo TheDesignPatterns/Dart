@@ -21,7 +21,7 @@ $ dart test
 $ dart run example/decorator.dart
 ```
 
-## Build (using official Dart image via podman/docker)
+## Build (using official Dart image via ```podman```/```docker```)
 
 ```
 $ git clone https://github.com/TheDesignPatterns/Dart.git
