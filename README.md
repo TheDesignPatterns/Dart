@@ -1,5 +1,7 @@
 # Design Patterns in Dart
 
+[![build](https://github.com/TheDesignPatterns/Dart/actions/workflows/dart.yml/badge.svg)](https://github.com/TheDesignPatterns/Dart/actions/workflows/dart.yml)
+
 Design Patterns examples written in Dart using TDD and mocking objects techniques (thanks to Mockito).
 
 ## Layout
