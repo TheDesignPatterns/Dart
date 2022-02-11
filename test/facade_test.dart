@@ -39,4 +39,27 @@ void main() {
     final facade = Facade(factory);
     expect(facade.handle(), 'Foo|Bar|Baz');
   });
+
+  group('Subsystem factory creates', () {
+    late AbstractSubsystemFactory factory;
+
+    setUp(() {
+      factory = SubsystemFactory();
+    });
+
+    test('subsystem Foo', () {
+      final foo = factory.createFoo();
+      expect(foo.handle(), 'Foo.handle');
+    });
+
+    test('subsystem Bar', () {
+      final bar = factory.createBar();
+      expect(bar.handle(), 'Bar.handle');
+    });
+
+    test('subsystem Baz', () {
+      final baz = factory.createBaz();
+      expect(baz.handle(), 'Baz.handle');
+    });
+  });
 }
