@@ -42,4 +42,13 @@ jobs:
       # package:test for this step to succeed. Note that Flutter projects will
       # want to change this to 'flutter test'.
       - name: Run tests
-        run: dart test
+        run: dart test --coverage="coverage"
+
+      - name: Prepare coverage
+        run: pub run coverage:format_coverage --lcov --in=coverage --out=lcov.info --packages=.packages --report-on=lib
+
+      - name: Upload coverage
+        uses: coverallsapp/github-action@v1.1.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: lcov.info
