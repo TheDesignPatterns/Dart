@@ -16,4 +16,9 @@ void main() {
       expect(bar, isNot(Flyweight('Baz')));
     });
   });
+
+  test('Flyweight.operation returns flyweight name', () {
+    final foo = Flyweight('Foo');
+    expect(foo.operation(), "Flyweight('Foo')");
+  });
 }

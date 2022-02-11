@@ -36,4 +36,10 @@ void main() {
       expect(iterator.next(), null);
     });
   });
+
+  test('Aggregator creates iterator', () {
+    final iterator = Aggregator(['foo']).createIterator();
+    expect(iterator.hasNext(), isTrue);
+    expect(iterator.next(), 'foo');
+  });
 }

@@ -31,6 +31,12 @@ void main() {
       colleague.handleRequest();
       verify(mediatorMock.mediate(colleague));
     });
+
+    test('sets its state to "notified" when receiving notify', () {
+      final colleague = Colleague(mediatorMock);
+      colleague.notify();
+      expect(colleague.toString(), 'State.notified');
+    });
   });
 
   group('Mediator', () {
