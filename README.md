@@ -10,12 +10,16 @@ Design Patterns examples written in Dart using TDD and mocking objects technique
 
 ## Layout
 
-* `example/`: design patterns to build/run (e.g. ```$ dart run example/builder.dart```)
-* `lib/`: design patterns to import from a dart file (e.g. ```import 'package:dp/builder.dart';```)
-* `test/` : design patterns to test (e.g. ```$ dart test test/builder_test.dart```)
-* `tool/`: tools that may be useful when commiting to this repo
+* [`example/`] design patterns to build/run (e.g. ```$ dart run example/builder.dart```)
+* [`lib/`] design patterns to import from a dart file (e.g. ```import 'package:dp/builder.dart';```)
+* [`test/`] design patterns to test (e.g. ```$ dart test test/builder_test.dart```)
+* `tool/` tools that may be useful when commiting to this repo
 
-Each design pattern has its corresponding file in the directories `example/`, `lib/` and `test/`.
+[`example/`]: https://github.com/TheDesignPatterns/Dart/tree/main/example
+[`lib/`]: https://github.com/TheDesignPatterns/Dart/tree/main/lib
+[`test/`]: https://github.com/TheDesignPatterns/Dart/tree/main/test
+
+Each design pattern has its corresponding file in the directories [`example/`], [`lib/`] and [`test/`].
 
 ## Build (assuming Dart env is up and running)
 
@@ -44,10 +48,10 @@ $ dart run example/decorator.dart
 ## Contributing
 
 #### You want to contribute to this project?
-That's nice! So please just fork it and send me a pull request.
+Wow, thanks! So please just fork it and send me a pull request.
 
-#### You like it?
-Be the first to star it!
+#### You like it and/or want to clone it?
+Wow, thanks! So please just star it!
 
 ## References
 - [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns)
