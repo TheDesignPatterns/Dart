@@ -10,9 +10,9 @@ Design Patterns examples written in Dart using TDD and mocking objects technique
 
 ## Layout
 
-* [`example/`] design patterns to build/run (e.g. ```$ dart run example/builder.dart```)
-* [`lib/`] design patterns to import from a dart file (e.g. ```import 'package:dp/builder.dart';```)
-* [`test/`] design patterns to test (e.g. ```$ dart test test/builder_test.dart```)
+* [`example/`] design patterns to build/run (e.g. `$ dart run example/builder.dart`)
+* [`lib/`] design patterns to import from a dart file (e.g. `import 'package:dp/builder.dart';`)
+* [`test/`] design patterns to test (e.g. `$ dart test test/builder_test.dart`)
 * `tool/` tools that may be useful when commiting to this repo
 
 [`example/`]: https://github.com/TheDesignPatterns/Dart/tree/main/example
@@ -51,7 +51,7 @@ $ dart run example/decorator.dart
 Wow, thanks! So please just fork it and send me a pull request.
 
 #### You like it and/or want to clone it?
-Wow, thanks! So please just star it!
+Wow, thanks! So please just star it.
 
 ## References
 - [Design Patterns](https://en.wikipedia.org/wiki/Design_Patterns)
