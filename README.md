@@ -8,7 +8,7 @@
 [coverage-badge]: https://coveralls.io/repos/github/TheDesignPatterns/Dart/badge.svg?branch=main&kill_cache=1
 [coverage-url]: https://coveralls.io/github/TheDesignPatterns/Dart?branch=main
 
-Design Patterns examples written in Dart using TDD and mocking objects techniques (thanks to [`mockito`](https://pub.dev/packages/mockito)).
+Design Patterns examples written in Dart using TDD and mocking objects techniques (thanks to [Mockito](https://pub.dev/packages/mockito)).
 
 ## Layout
 
