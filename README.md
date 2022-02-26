@@ -32,12 +32,12 @@ $ dart test
 $ dart run example/decorator.dart
 ```
 
-## Build (using official Dart image via ```podman```/```docker```)
+## Build (using official Dart image via ```docker```)
 
 ```
 $ git clone https://github.com/TheDesignPatterns/Dart.git
 $ cd Dart
-$ podman run -it -v $PWD:/Dart -w /Dart docker.io/library/dart
+$ docker run -it -v $PWD:/Dart -w dart
 ```
 From inside the running container:
 ```
