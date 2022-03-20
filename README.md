@@ -25,8 +25,8 @@ Each design pattern has its corresponding file in the directories [`example/`], 
 ## Build (assuming Dart env is up and running)
 
 ```
-$ git clone https://github.com/TheDesignPatterns/Dart.git
-$ cd Dart
+$ git clone https://github.com/mehoffer/DesignPatterns.git
+$ cd DesignPatterns
 $ dart run build_runner build
 $ dart test
 $ dart run example/decorator.dart
@@ -35,8 +35,8 @@ $ dart run example/decorator.dart
 ## Build (using official Dart image via ```docker```)
 
 ```
-$ git clone https://github.com/TheDesignPatterns/Dart.git
-$ cd Dart
+$ git clone https://github.com/mehoffer/DesignPatterns.git
+$ cd DesignPatterns
 $ docker run -it -v $PWD:/Dart -w dart
 ```
 From inside the running container:
