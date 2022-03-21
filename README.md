@@ -37,7 +37,7 @@ $ dart run example/decorator.dart
 ```
 $ git clone https://github.com/mehoffer/DesignPatterns.git
 $ cd DesignPatterns
-$ docker run -it -v $PWD:/Dart -w dart
+$ docker run -it -v $PWD:/DP -w /DP dart
 ```
 From inside the running container:
 ```
